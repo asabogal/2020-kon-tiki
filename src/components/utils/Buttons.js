@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MenuButton = () => {
+export const MenuButton = ({dark}) => {
   return (
-    <MenuBtn>
+    <MenuBtn dark>
       <div></div>
       <div></div>
       <div></div>
@@ -31,7 +31,6 @@ const MenuBtn = styled.div`
     div {
       width: 35px;
       height: 1px;
-      background-color: #002b5c;
       margin: 6px 0;
       transition: 0.4s;
     } 
