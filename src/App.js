@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'; 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Helmet from 'react-helmet';
+import Layout from './components/navigation/Layout';
 import LandingPage from './pages/LandingPage';
 
 const App = () => {
@@ -12,9 +13,11 @@ const App = () => {
         <meta name="keywords" content="kon-tiki, kon, tiki, greenport, restaurant, bar, gallery hotel, gallery, hotel" />
       </Helmet>
       <BrowserRouter>
-        <Switch>
-          <Route exact path='/' component={LandingPage}/>
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route exact path='/' component={LandingPage}/>
+          </Switch>
+        </Layout>
       </BrowserRouter>
     </>
   )
