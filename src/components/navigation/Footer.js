@@ -1,18 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from '../utils/Logo';
 import SocialBar from '../utils/SocialBar';
 
 const Footer = () => {
   return (
     <Container>
-      <Wrapper>
-        <a href='#'>631-477-4000</a>
-        <a href='#'>437 Main Street - Greenport, NY 11944</a>
-        <SocialBar
-          color='white'
-          size='2x'
-        />
-      </Wrapper>
+      <Logo/>
+      <ContactUs>
+        <h3>CONTACT US</h3>
+        <a href="tel: +1-631-477-4007">631-477-4007</a>
+        <a href="https://www.google.com/maps?saddr=My+Location&daddr=437+Main+Street+Greenport+NY+11944" target="_blank" rel="noopener noreferrer">437 Main Street - Greenport, NY 11944</a>
+        <a href="mailto:kontiki@galleryhotelny.com">kontiki@galleryhotelny.com</a>
+      </ContactUs>
+      <Hours>
+        <h3>HOURS</h3>
+        <p>Fri - Sun</p>
+        <p>12pm - 8pm</p>
+      </Hours>
     </Container>
   );
 };
@@ -20,31 +25,34 @@ const Footer = () => {
 export default Footer;
 
 const Container = styled.div`
-  display: block;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-`;
-
-const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 40px 40px;
   background-color: black;
   height: auto;
+  text-align: center;
   a {
+    display: block;
     color: white;
     text-decoration: none;
+    padding: 0px;
+    margin-block-end: 8px;
+    margin-block-start: 0px;
     &:hover {
       text-decoration: underline;
     }
   }
-  @media (max-width: 720px) {
-    flex-direction: column;
-    a {
-      padding-bottom: 20px;
+`;
+
+const ContactUs = styled.div`
+`;
+
+const Hours = styled.div`
+    p {
+      margin-block-end: 8px;
+      margin-block-start: 0px;
     }
-  }
 `;
