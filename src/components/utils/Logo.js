@@ -13,12 +13,14 @@ const Logo = () => {
 export default Logo;
 
 const Container = styled.div`
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 18px;
+  border: 2px solid white;
   @media (max-width: 768px) {
-    width: 55px;
-    height: 55px;
+    width: 75px;
+    height: 75px;
   }
   img {
     height: 100%;
