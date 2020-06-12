@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import NavHeader from './NavHeader';
 
-
-const Layout = () => {
+const Layout = ({children}) => {
   return (
     <Container>
       <NavHeader/>
+        {children}
     </Container>
   );
 };
