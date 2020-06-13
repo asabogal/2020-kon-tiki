@@ -34,6 +34,9 @@ const Container = styled.div`
   background-color: black;
   height: auto;
   text-align: center;
+  h3 {
+    margin-block-end: 12px;
+  }
   a {
     display: block;
     color: white;
