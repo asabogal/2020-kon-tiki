@@ -30,6 +30,6 @@ export default SocialBar;
 
 const Container = styled.div`
   a {
-    padding-left: 10px;
+    padding-left: 20px;
   }
 `;
