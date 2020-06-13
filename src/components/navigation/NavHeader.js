@@ -8,7 +8,7 @@ const NavHeader = () => {
         <a href="tel: +1-631-477-4007">631-477-4007</a>
         <Hours>
           <p>Fri, Sat, Sun</p>
-          <p>12-8pm</p>
+          <p>12-9pm</p>
         </Hours>
         <SocialBar
           color='white'

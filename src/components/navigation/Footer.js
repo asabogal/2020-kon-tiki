@@ -16,7 +16,7 @@ const Footer = () => {
       <Hours>
         <h3>HOURS</h3>
         <p>Fri - Sun</p>
-        <p>12pm - 8pm</p>
+        <p>12pm - 9pm</p>
       </Hours>
     </Container>
   );
