@@ -36,6 +36,7 @@ const Container = styled.div`
   text-align: center;
   h3 {
     margin-block-end: 12px;
+    text-decoration: underline;
   }
   a {
     display: block;
@@ -55,7 +56,7 @@ const ContactUs = styled.div`
 
 const Hours = styled.div`
     p {
-      margin-block-end: 8px;
+      margin-block-end: 0px;
       margin-block-start: 0px;
     }
 `;
