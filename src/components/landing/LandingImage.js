@@ -17,10 +17,11 @@ export default LandingImage;
 
 const Container = styled.div`
   display: grid;
-  height: auto;
+  height: 90vh;
   width: 100vw;
+  padding-bottom: 20px;
   @media (max-width: 599px) {
-    height: auto;
+    height: 75vh;
   }
 `;
 
