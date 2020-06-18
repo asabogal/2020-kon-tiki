@@ -6,11 +6,9 @@ const Announcement = () => {
     <Container>
       <h1>WE ARE OPEN!!</h1>
       <h2>Visit us for full-service outdoor seating or window pick up</h2>
-      <p>
-        KonTiki is one of the North Fork’s most intriguing restaurants and bars.<br></br>
-	      Spearheaded by Chef Cheo, our unique approach to cusine sets us apart from any culinary experience in the area.<br></br>
-	      Located at the beautiful Gallery Hotel in Greenport, NY, we welcome you to join us and experience it for yourself!<br></br>
-      </p>
+      <p>KonTiki is one of the North Fork’s most intriguing restaurants and bars.</p>
+      <p>Spearheaded by Chef Cheo, our unique approach to cusine sets us apart from any culinary experience in the area.</p>
+      <p>Located at the beautiful Gallery Hotel in Greenport, NY, we welcome you to join us and experience it for yourself!</p>
     </Container>
   );
 };
@@ -22,7 +20,15 @@ const Container = styled.div`
   height: 45vh; 
   text-align: center;
   margin-bottom: 5vh;
+  width: 60%;
+  justify-content: center;
+  margin: 0 auto;
   p {
     font-size: 20px;
+    margin-block-start: 3px;
+    margin-block-end: 3px;
+  }
+  @media (max-width: 999px) {
+    height: 90vh;
   }
 `;
