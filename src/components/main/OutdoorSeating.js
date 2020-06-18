@@ -14,7 +14,9 @@ const OutdoorSeating = () => {
         <p>Food and Cocktails</p>
         <p>Service from 3pm - 9pm, Friday-Sunday</p>
         <p>Reservations strongly encouraged</p>
-        <Link to='/menu'>Menu</Link>
+        <LinkContainer>
+          <Link to='/menu'>Menu</Link>
+        </LinkContainer>
       </TextContainer>
     </Container>
   );
@@ -27,6 +29,11 @@ const Container = styled.div`
   grid-template-columns: 60% 40%;
   gap: 20px;
   padding: 20px 50px;
+  @media (max-width: 999px) {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    padding: 30px 0px;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -44,7 +51,13 @@ const TextContainer = styled.div`
   }
   p {
     font-size: 20px;
+    margin-block-start: 3px;
+    margin-block-end: 3px;
   }
+`;
+
+const LinkContainer = styled.div`
+  margin-top: 2rem;
   a {
     color: #cc82a1;
     font-size: 30px;
