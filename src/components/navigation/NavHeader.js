@@ -53,6 +53,7 @@ const Hours = styled.div`
     text-align: center;
     justify-items: center;
     font-size: 14px;
+    color: white;
   }
 `;
 

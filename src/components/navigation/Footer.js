@@ -34,6 +34,7 @@ const Container = styled.div`
   background-color: black;
   height: auto;
   text-align: center;
+  color: white;
   h3 {
     margin-block-end: 12px;
     text-decoration: underline;
