@@ -33,7 +33,7 @@ const Container = styled.div`
   a {
     text-decoration: none;
     color: white;
-    font-size: 14px;  
+    font-size: 18px;  
     &:hover {
       text-decoration: underline;
     }
