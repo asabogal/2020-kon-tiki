@@ -36,8 +36,9 @@ const Container = styled.div`
   text-align: center;
   color: white;
   h3 {
-    margin-block-end: 12px;
+    margin-block-end: 14px;
     text-decoration: underline;
+    letter-spacing: 1.8px;
   }
   a {
     display: block;
@@ -46,6 +47,7 @@ const Container = styled.div`
     padding: 0px;
     margin-block-end: 8px;
     margin-block-start: 0px;
+    letter-spacing: 1.2px;
     &:hover {
       text-decoration: underline;
     }
