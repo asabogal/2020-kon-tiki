@@ -18,4 +18,9 @@ const Container = styled.div`
   h1 {
     margin-block-end: 0px;
   }
+  @media (max-width: 499px) {
+    h1 {
+      font-size: 40px;
+    }
+  }
 `;
