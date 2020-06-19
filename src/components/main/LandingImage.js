@@ -21,16 +21,8 @@ const Container = styled.div`
   width: 100vw;
   padding-bottom: 20px;
   background-color: black;
-  animation: SlideUp 1s ease forwards 2.4s;
   @media (max-width: 599px) {
     height: 75vh;
   }
-  @keyframes SlideUp {
-  from {
-    transform: translateY(0);
-  } to {
-    transform: translateY(-100%);
-  }
-}
 `;
 
