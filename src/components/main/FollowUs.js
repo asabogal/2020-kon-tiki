@@ -79,14 +79,16 @@ const Heading = styled.div`
 
 const Gallery = styled.div`
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+  grid-gap: 3px;
+  grid-template-columns: repeat(4, 1fr);
+  @media (max-width: 499px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 2px;
+  }
 `;
 
 const ImageContainer = styled.div`
-  align-self: center;
-  height: 100%;
-  width: 100%;
   img {
     width: 100%;
     height: 100%;
