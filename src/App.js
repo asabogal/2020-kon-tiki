@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Layout from './components/navigation/Layout';
 import LandingPage from './pages/LandingPage';
-import {CovidMenu} from './components/main/Menus';
+import {DrinkMenu, FoodMenu} from './components/main/Menus';
 
 const App = () => {
   return (
@@ -17,7 +17,8 @@ const App = () => {
         <Layout>
           <Switch>
             <Route exact path='/' component={LandingPage}/>
-            <Route exact path='/menu' component={CovidMenu}/>
+            <Route exact path='/drink_menu' component={DrinkMenu}/>
+            <Route exact path='/food_menu' component={FoodMenu}/>
           </Switch>
         </Layout>
       </BrowserRouter>
