@@ -54,28 +54,3 @@ const Hours = styled.div`
     color: white;
   }
 `;
-
-const LogoContainer = styled.div`
-  padding-left: 40px;
-`;
-
-const InfoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding-right: 40px;
-  a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    padding-right: 5px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
-
-// const MenuBtnContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   padding-right: 40px;
-// `;
