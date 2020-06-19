@@ -26,8 +26,8 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   z-index: 900;
-  height: 50px;
-  padding: 0px 40px 10px 40px;
+  height: auto;
+  padding: 10px 0px;
   background-color: black;
   z-index: 900;
   a {
@@ -38,9 +38,7 @@ const Container = styled.div`
       text-decoration: underline;
     }
   }
-  @media (max-width: 650px) {
-    padding: 0px 10px 30px 10px;
-  }
+
 `;
 
 const Hours = styled.div`
