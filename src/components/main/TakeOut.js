@@ -11,7 +11,8 @@ const TakeOut = () => {
         <p>Food and Cocktails</p>
         <p>From 12pm - 8pm, Friday-Sunday</p>
         <LinkContainer>
-          <Link to='/menu'>Menu</Link>
+          <Link to='/food_menu'>FOOD MENU</Link>
+          <Link to='/drink_menu'>DRINK MENU</Link>
         </LinkContainer>
       </TextContainer>
       <ImageContainer>
@@ -60,9 +61,16 @@ const TextContainer = styled.div`
 `;
 
 const LinkContainer = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
   a {
     color: #cc82a1;
     font-size: 30px;
+    padding: 0px 20px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
-`;
+  `;
