@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../utils/Logo';
-import SocialBar from '../utils/SocialBar';
 
 const Footer = () => {
   return (
