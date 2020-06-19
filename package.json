@@ -1,5 +1,6 @@
 {
   "name": "2020-kon-tiki",
+  "homepage": "http://kontiki-gp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
