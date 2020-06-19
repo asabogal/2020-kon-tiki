@@ -5,7 +5,7 @@ import logo from '../../images/nav_logo.png';
 const Logo = () => {
   return (
     <Container>
-      <img src={logo}/>
+      <img src={logo} alt='kontiki-logo'/>
     </Container>
   );
 };
