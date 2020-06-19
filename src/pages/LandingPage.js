@@ -10,7 +10,7 @@ import Footer from '../components/navigation/Footer';
 
 const LandingPage = () => {
   return (
-    <div>
+    <PageContainer>
       <LandingImage/>
       <Content>
         <Announcement/>
@@ -20,11 +20,32 @@ const LandingPage = () => {
         <FollowUs/>
       </Content>
       <Footer/>
-    </div>
+    </PageContainer>
   );
 };
 
 export default LandingPage;
+
+const PageContainer = styled.div`
+  animation: ContentUp 1s ease forwards 2.5s;
+  position: absolute;
+  @keyframes ContentUp {
+  from {
+    transform: translateY(0);
+  } to {
+    transform: translateY(-90vh);
+  }
+} 
+@media (max-width: 499px) {
+  @keyframes ContentUp {
+  from {
+    transform: translateY(0);
+  } to {
+    transform: translateY(-80vh);
+  }
+} 
+}
+`;
 
 const Content = styled.div`
   padding: 0px 10px 20px 10px; 
@@ -32,12 +53,5 @@ const Content = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, auto), 150px;
   gap: 20px;
-  animation: ContentUp 1s ease forwards 2.5s;
-  @keyframes ContentUp {
-  from {
-    transform: translateY(0);
-  } to {
-    transform: translateY(-80vh);
-  }
-}
+  
 `;
