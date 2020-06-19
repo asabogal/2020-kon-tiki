@@ -32,4 +32,12 @@ const Content = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, auto), 150px;
   gap: 20px;
+  animation: ContentUp 1s ease forwards 2.5s;
+  @keyframes ContentUp {
+  from {
+    transform: translateY(0);
+  } to {
+    transform: translateY(-80vh);
+  }
+}
 `;
