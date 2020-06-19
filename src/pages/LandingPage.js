@@ -30,6 +30,6 @@ const Content = styled.div`
   padding: 0px 10px 20px 10px; 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: repeat(4, auto), 150px;
   gap: 20px;
 `;
