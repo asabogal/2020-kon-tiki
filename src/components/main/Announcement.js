@@ -28,7 +28,7 @@ const Container = styled.div`
     margin-block-start: 3px;
     margin-block-end: 3px;
   }
-  @media (max-width: 999px) {
-    height: 100vh;
+  @media (max-width: 499px) {
+    height: 110vh;
   }
 `;
