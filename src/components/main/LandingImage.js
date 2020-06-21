@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import {ImageContainer} from './ImageContainer';
 import gif from '../../images/kt_gif_big.gif';
 
-const LandingImage = () => {
+const LandingImage = ({handleGifLoad}) => {
   return (
     <Container>
       <ImageContainer>
-        <img src={gif} alt='kon-tiki-logo'/>
+        <img onLoad={handleGifLoad} src={gif} alt='kon-tiki-logo'/>
       </ImageContainer>
     </Container>
   );
@@ -24,5 +24,5 @@ const Container = styled.div`
   @media (max-width: 599px) {
     height: 75vh;
   }
-`;
+`; 
 
