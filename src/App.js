@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Layout from './components/navigation/Layout';
 import LandingPage from './pages/LandingPage';
 import {DrinkMenu, FoodMenu} from './components/main/Menus';
+import 'babel-polyfill';
 
 const App = () => {
   return (
