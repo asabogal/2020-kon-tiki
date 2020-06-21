@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 import LandingImage from '../components/main/LandingImage';
 import Announcement from '../components/main/Announcement';
@@ -9,10 +9,17 @@ import FollowUs from '../components/main/FollowUs';
 import Footer from '../components/navigation/Footer';
 
 const LandingPage = () => {
+
+  const [gifLoading, setGifLoading] = useState(true);
+
+  const handleGifLoad = () => {
+    setGifLoading(false);
+  }
+
   return (
     <PageContainer>
-      <LandingImage/>
-      <Content>
+      <LandingImage handleGifLoad={handleGifLoad}/>
+      <Content loading={gifLoading.toString()}>
         <Announcement/>
         <OutdoorSeating/>
         <TakeOut/>
@@ -27,7 +34,7 @@ const LandingPage = () => {
 export default LandingPage;
 
 const PageContainer = styled.div`
-  animation: ContentUp 1s ease forwards 2.5s;
+  animation: ${props => props.loading === 'true' ? 'none' : 'ContentUp 1s ease forwards 2.8s'};
   position: absolute;
   @keyframes ContentUp {
   from {
