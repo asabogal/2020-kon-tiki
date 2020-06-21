@@ -12,7 +12,7 @@ const App = () => {
       <Helmet>
         <title>Kon-Tiki Greenport</title>
         <meta name="description" content="Kon-Tiki Restaurant and Bar at The Gallery Hotel" />
-        <meta name="keywords" content="kon-tiki, kon, tiki, greenport, restaurant, bar, gallery hotel, gallery, hotel" />
+        <meta name="keywords" content="kon-tiki, kontiki, kontiki-gp, kontiki greenport, kon-tiki grenport, kon, tiki, greenport, restaurant, bar, gallery hotel, gallery, hotel" />
       </Helmet>
       <BrowserRouter>
         <Layout>
