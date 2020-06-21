@@ -21,22 +21,22 @@ const InstagramSection = () => {
       </Heading>
       <Gallery>
         <ImageContainer>
-          <a href='https://www.instagram.com/kontiki.gp/' target="_blank" rel="noopener noreferrer">
+          <a href='https://www.instagram.com/p/ByIvAzsnYiR/' target="_blank" rel="noopener noreferrer">
             <img src={poke} alt='poke'/>
           </a>
         </ImageContainer>
         <ImageContainer>
-          <a href='https://www.instagram.com/kontiki.gp/' target="_blank" rel="noopener noreferrer">
+          <a href='https://www.instagram.com/p/B2XhslmHuao/' target="_blank" rel="noopener noreferrer">
             <img src={drink} alt='drink'/>
           </a>
         </ImageContainer>
         <ImageContainer>
-          <a href='https://www.instagram.com/kontiki.gp/' target="_blank" rel="noopener noreferrer">
+          <a href='https://www.instagram.com/p/CBYy9KvniRD/' target="_blank" rel="noopener noreferrer">
             <img src={garden} alt='garden'/>
           </a>
         </ImageContainer>
         <ImageContainer>
-          <a href='https://www.instagram.com/kontiki.gp/' target="_blank" rel="noopener noreferrer">
+          <a href='https://www.instagram.com/p/CBENcTunl-d/' target="_blank" rel="noopener noreferrer">
             <img src={ceviche} alt='ceviche'/>
           </a> 
         </ImageContainer>
