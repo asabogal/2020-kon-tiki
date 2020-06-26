@@ -12,7 +12,7 @@ const OutdoorSeating = () => {
       <TextContainer>
         <h1>GARDEN SEATING</h1>
         <p>Food and Cocktails</p>
-        <p>Service from 3pm - 9pm, Friday-Sunday</p>
+        <p>Service from 6pm - 10pm, Friday-Sunday</p>
         <p>Reservations strongly encouraged</p>
         <LinkContainer>
           <Link to='/food_menu'>FOOD MENU</Link>

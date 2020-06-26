@@ -9,7 +9,7 @@ const TakeOut = () => {
       <TextContainer>
         <h1>TAKE OUT</h1>
         <p>Food and Cocktails</p>
-        <p>From 12pm - 8pm, Friday-Sunday</p>
+        <p>From 6pm - 8pm, Friday-Sunday</p>
         <LinkContainer>
           <Link to='/food_menu'>FOOD MENU</Link>
           <Link to='/drink_menu'>DRINK MENU</Link>
