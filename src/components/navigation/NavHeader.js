@@ -7,8 +7,8 @@ const NavHeader = () => {
     <Container>
         <a href="tel: +1-631-477-4007">631-477-4007</a>
         <Hours>
-          <p>Fri, Sat, Sun</p>
-          <p>6-10pm</p>
+          <p>Thu - Mon</p>
+          <p>5pm - 10pm</p>
         </Hours>
         <SocialBar
           color='white'
@@ -50,7 +50,7 @@ const Hours = styled.div`
     margin: 0;
     text-align: center;
     justify-items: center;
-    font-size: 14px;
+    font-size: 18px;
     color: white;
   }
 `;

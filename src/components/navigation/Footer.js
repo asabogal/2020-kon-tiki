@@ -14,8 +14,8 @@ const Footer = () => {
       </ContactUs>
       <Hours>
         <h3>HOURS</h3>
-        <p>Fri - Sun</p>
-        <p>6pm - 10pm</p>
+        <p>Thu - Mon</p>
+        <p>5pm - 10pm</p>
       </Hours>
     </Container>
   );
