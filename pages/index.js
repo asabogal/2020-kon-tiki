@@ -7,7 +7,6 @@ const Home = () => {
     </Title>
   )
 }
-
 export default Home;
 
 
