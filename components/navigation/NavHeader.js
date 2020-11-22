@@ -26,7 +26,7 @@ const Container = styled.div`
   align-items: center;
   z-index: 900;
   height: auto;
-  padding: 10px 0px;
+  padding-top: 20px;
   background-color: black;
   z-index: 900;
   a {
@@ -36,6 +36,9 @@ const Container = styled.div`
     &:hover {
       text-decoration: underline;
     }
+  }
+  @media (max-width: 599px) {
+    padding: 15px 0px;
   }
 `;
 
