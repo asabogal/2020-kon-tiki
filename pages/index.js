@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 // components
 import LandingImage from '../components/main/LandingImage';
-import Announcement from '../components/main/Announcement';
+import Intro from '../components/main/Intro';
+// import Announcement from '../components/main/Announcement';
 import OutdoorSeating from '../components/main/OutdoorSeating';
 import TakeOut from '../components/main/TakeOut';
 import Quotes from '../components/main/Quotes';
@@ -21,7 +22,8 @@ const Home = () => {
     <PageContainer>
       <LandingImage handleGifLoad={handleGifLoad}/>
       <Content loading={gifLoading.toString()}>
-        <Announcement/>
+        {/* <Announcement/> */}
+        <Intro/>
         <OutdoorSeating/>
         <TakeOut/>
         <Quotes/>
