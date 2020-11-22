@@ -2,9 +2,11 @@ import styled from 'styled-components'
 
 const Home = () => {
   return  (
-    <Title>
-      NEXT JS
-    </Title>
+    <>
+      <Title>
+        KON-TIKI
+      </Title>
+    </>
   )
 }
 export default Home;
