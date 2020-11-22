@@ -22,12 +22,15 @@ const Container = styled.div`
   width: 60%;
   justify-content: center;
   margin: 0 auto;
+  h1 {
+    margin-block-end: 10px;
+  }
   p {
     font-size: 20px;
     margin-block-start: 3px;
     margin-block-end: 3px;
   }
   @media (max-width: 499px) {
-    height: 110vh;
+    height: 80vh;
   }
 `;
