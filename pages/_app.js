@@ -25,7 +25,9 @@ h2 {
   font-size: 30px;
 }
 `;
-export default function App({ Component, pageProps }) {
+
+ const App = ({ Component, pageProps }) => {
+   
   return (
     <> 
       <Helmet>
@@ -41,3 +43,5 @@ export default function App({ Component, pageProps }) {
     </>
   )
 }
+
+export default App;
