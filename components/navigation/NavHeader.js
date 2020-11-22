@@ -1,13 +1,18 @@
 import styled from 'styled-components';
+import SocialBar from '../utils/SocialBar';
 
 const NavHeader = () => {
   return (
     <Container>
         <a href="tel: +1-631-477-4007">631-477-4007</a>
         <Hours>
-          <p>Thu - Mon</p>
+          <p>Friday & Sunday</p>
           <p>5pm - 10pm</p>
         </Hours>
+        <SocialBar
+          color='white'
+          size='lg'
+        />
     </Container>
   );
 };
