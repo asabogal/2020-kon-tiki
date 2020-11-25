@@ -1,4 +1,5 @@
-import { createGlobalStyle} from 'styled-components'
+import {useRouter} from 'next/router';
+import {createGlobalStyle} from 'styled-components'
 import Layout from '../components/navigation/Layout';
 import Helmet from 'react-helmet';
 
@@ -28,6 +29,9 @@ h2 {
 
  const App = ({ Component, pageProps }) => {
    
+  const router = useRouter();
+  const adminPath = router.pathname.split('/')[1];
+
   return (
     <> 
       <Helmet>
@@ -37,9 +41,14 @@ h2 {
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>           
       </Helmet>
       <GlobalStyle />
-      <Layout>
+      {
+        adminPath !== 'admin' ?
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      :
         <Component {...pageProps} />
-      </Layout>
+      }
     </>
   )
 }
