@@ -25,26 +25,14 @@ export default TakeOut;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-rows: auto auto;
   gap: 20px;
-  padding: 20px 50px;
-  @media (max-width: 999px) {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-    padding: 30px 0px;
-  }
-`;
-
-const ImageContainer = styled.div`
-  img {
-    height: 100%;
-    width: 100%;
-  }
+  margin-bottom: 10vh;
 `;
 
 const TextContainer = styled.div`
-  align-self: center;
   text-align: center;
+  margin-bottom: 2vh;
   h1 {
     font-size: 50px;
   }
@@ -53,10 +41,8 @@ const TextContainer = styled.div`
     margin-block-start: 3px;
     margin-block-end: 3px;
   }
-  @media (max-width: 499px) {
-    grid-row: 2 / 3;
-  }
 `;
+
 
 const LinkContainer = styled.div`
   display: flex;
@@ -70,5 +56,19 @@ const LinkContainer = styled.div`
     &:hover {
       text-decoration: underline;
     }
+  }
+  `;
+
+const ImageContainer = styled.div`
+  margin: 0 auto;
+  height: 70vh;
+  img {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0.5%;
+  }
+  @media (max-width: 599px) {
+    height: 40vh;
   }
   `;
