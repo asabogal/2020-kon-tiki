@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import LandingImage from '../components/main/LandingImage';
 import Intro from '../components/main/Intro';
 // import Announcement from '../components/main/Announcement';
-import OutdoorSeating from '../components/main/OutdoorSeating';
+import Seating from '../components/main/Seating';
 import TakeOut from '../components/main/TakeOut';
 import Quotes from '../components/main/Quotes';
 import FollowUs from '../components/main/FollowUs';
@@ -24,7 +24,7 @@ const Home = () => {
       <Content loading={gifLoading.toString()}>
         {/* <Announcement/> */}
         <Intro/>
-        <OutdoorSeating/>
+        <Seating/>
         <TakeOut/>
         <Quotes/>
         <FollowUs/>
@@ -62,5 +62,5 @@ const Content = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, auto), 150px;
   gap: 20px;
-  
+  margin: 0 2vw;
 `;
