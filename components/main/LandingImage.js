@@ -20,7 +20,7 @@ const Container = styled.div`
   padding-bottom: 20px;
   background-color: black;
   @media (max-width: 599px) {
-    height: 75vh;
+    height: 80vh;
   }
 `; 
 
