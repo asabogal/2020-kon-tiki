@@ -7,3 +7,8 @@ export const AdminPageContainer = styled.div`
   width: 100vw;
   background-color: #191b30;
 `;
+
+export const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
