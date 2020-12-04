@@ -1,4 +1,5 @@
 import React, {useReducer, useState, useEffect} from 'react';
+import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
 
 const Login = () => {
@@ -10,6 +11,8 @@ const Login = () => {
   }  
 );
 
+  const [submitForm] = useSubmitForm(userInput);
+
   const handleChange = (e) => {
     const {name, value} = e.target;
     setUserInput({
@@ -20,7 +23,7 @@ const Login = () => {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('submitted');
+    submitForm();
   };
 
   return (
