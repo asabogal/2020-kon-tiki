@@ -57,6 +57,9 @@ const FormContainer = styled.div`
   justify-items: center;
   justify-content: center;
   align-content: center;
+  h1 {
+    color: white;
+  }
   form {
     width: 300px;
     display: grid;
