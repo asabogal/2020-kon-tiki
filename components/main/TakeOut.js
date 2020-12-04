@@ -64,7 +64,7 @@ const ImageContainer = styled.div`
   height: 70vh;
   img {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 0.5%;
   }
