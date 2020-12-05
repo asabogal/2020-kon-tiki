@@ -29,6 +29,6 @@ const Container = styled.div`
     margin-block-end: 2vh;
   }
   @media (max-width: 499px) {
-    height: 55vh;
+    height: auto;
   }
 `;

@@ -68,7 +68,16 @@ const ImageContainer = styled.div`
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 0.5%;
   }
+  @media (max-width: 1025px) {
+    img {
+      height: 75%;
+    }
+  }
   @media (max-width: 599px) {
     height: 40vh;
+    img {
+      height: 85%;
+      max-width: 100%;
+    }
   }
   `;
