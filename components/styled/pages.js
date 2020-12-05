@@ -12,3 +12,7 @@ export const DashboardContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const DashboardContent = styled.div`
+  display: flex;
+`;
