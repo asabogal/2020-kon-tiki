@@ -1,44 +1,47 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import drinkMenu from '../../public/images/drink_menu.png';
 import foodMenu from '../../public/images/food_menu.png';
 
-export const DrinkMenu = () => {
-  
+const Menu = ({path}) => {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   })
 
+  const menus = {
+    food_menu: foodMenu,
+    drink_menu: drinkMenu
+  };
+
+  const nextMenu = (path) => {
+    const menuObj = {};
+    if (path === 'food_menu') {
+      menuObj['name'] = 'Drink Menu',
+      menuObj['link'] = '/drink_menu'
+    } else {
+      menuObj['name'] = 'Food Menu',
+      menuObj['link'] = '/food_menu'
+    }
+
+    return menuObj;
+  };
+
   return (
     <PageContainer>
       <NavContainer>
-        <Link href='/'><a><span>&larr;</span> Back</a></Link>
+        <Link href={nextMenu(path).link}><a>{`${nextMenu(path).name}`}</a></Link>
+        <Link href='/'><a>Go Back</a></Link>
       </NavContainer>
       <MenuContainer>
-        <img src={drinkMenu} alt='drink-menu'/>
+        <img src={menus[path]} alt={`${path}`}/>
       </MenuContainer>
-  </PageContainer>
-  )
-}
+</PageContainer>
+  );
+};
 
-export const DinnerMenu = () => {
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  })
-
-  return (
-    <PageContainer>
-      <NavContainer>
-        <Link href='/'><a><span>&larr;</span> Back</a></Link>
-      </NavContainer>
-      <MenuContainer>
-        <img src={foodMenu} alt='food-menu'/>
-      </MenuContainer>
-    </PageContainer>
-  )
-}
+export default Menu;
 
 const PageContainer = styled.div`
   display: grid;
@@ -49,11 +52,13 @@ const NavContainer = styled.div`
   margin: 20px;
   z-index: 1;
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   a {
-    text-decoration: none;
     color: #cc82a1;
     font-size: 20px;
+    padding-bottom: 0.5rem;
     &:hover {
       text-decoration: underline;
     }
