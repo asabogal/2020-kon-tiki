@@ -24,7 +24,6 @@ const Menu = ({path}) => {
       menuObj['name'] = 'Food Menu',
       menuObj['link'] = '/food_menu'
     }
-
     return menuObj;
   };
 
