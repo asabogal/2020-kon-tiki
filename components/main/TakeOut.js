@@ -76,6 +76,7 @@ const ImageContainer = styled.div`
   @media (max-width: 599px) {
     height: 40vh;
     img {
+      height: 85%;
       max-width: 100%;
     }
   }
