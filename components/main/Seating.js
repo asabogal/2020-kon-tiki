@@ -11,8 +11,7 @@ const Seating = () => {
         <p>Food and Cocktails</p>
         <p>Service from 5pm - 10pm, Friday & Saturday</p>
         <LinkContainer>
-          <Link href='/food_menu'><a>FOOD MENU</a></Link>
-          <Link href='/drink_menu'><a>DRINK MENU</a></Link>
+          <Link href='/menu'><a>MENU</a></Link>
         </LinkContainer>
       </TextContainer>
       <ImagesContainer>
