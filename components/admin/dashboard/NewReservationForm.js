@@ -31,7 +31,7 @@ const NewReservationForm = () => {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <h2>New Reservation</h2>
+      <h2>Add New Reservation</h2>
       <Form>
         <input
           placeholder="name"
@@ -61,26 +61,32 @@ const NewReservationForm = () => {
           value={reservation.value}
           onChange={handleChange}
         />
-        <select
-          placeholder="seating"
-          name="seating"
-          value={reservation.value}
-          onChange={handleChange}
-        >
-          <option value="indoor">Indoor</option>
-          <option value="garden">Garden</option>
-          <option value="patio">Patio</option>
-        </select>
-        <textarea
-          placeholder='add notes'
-          name='notes'
-          rows="5"
-          value={reservation.value}
-          onChange={handleChange}
-        />
-        <button type='submit'>
-          Add Reservation
-        </button>
+        <SelectField>
+          <select
+            placeholder="seating"
+            name="seating"
+            value={reservation.value}
+            onChange={handleChange}
+          >
+            <option value="indoor">Indoor</option>
+            <option value="garden">Garden</option>
+            <option value="patio">Patio</option>
+          </select>
+        </SelectField>
+        <TextAreaField>
+          <textarea
+            placeholder='add notes'
+            name='notes'
+            rows="6"
+            value={reservation.value}
+            onChange={handleChange}
+          />
+        </TextAreaField>
+        <ButtonField>
+          <button type='submit'>
+            Add Reservation
+          </button>
+        </ButtonField>
       </Form>
     </FormContainer>
   );
@@ -92,16 +98,38 @@ const FormContainer = styled.div`
   margin: 0 auto;
   text-align: center;
   color: white;
-  width: 30vw;
+  padding-top: 3rem;
 `;
 
 const Form = styled.form`
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   input {
+    height: 1.5rem;
+    font-size: 16px;
+  }
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+  button {
+    width: 100%;
     height: 2rem;
+    cursor: pointer;
   }
 `;
 
+const SelectField = styled.div`
+  grid-area: 3 / 1 / 3 / 3; 
+`;
+
+const TextAreaField = styled.div`
+  grid-area: 4 / 1 / 4 / 3;
+`;
+
+const ButtonField = styled.div`
+  grid-area: 5 / 1 / 5 / 3;
+`;
 
 
