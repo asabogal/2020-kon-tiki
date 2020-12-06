@@ -25,7 +25,7 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   z-index: 900;
-  height: auto;
+  height: 55px;
   padding-top: 20px;
   background-color: black;
   z-index: 900;
@@ -46,6 +46,7 @@ const Hours = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-self: center;
   p {
     padding: 0;
     margin: 0;
