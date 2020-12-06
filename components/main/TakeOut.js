@@ -10,8 +10,7 @@ const TakeOut = () => {
         <p>Food and Cocktails</p>
         <p>From 5pm - 9pm, Friday & Saturday</p>
         <LinkContainer>
-          <Link href='/food_menu'><a>FOOD MENU</a></Link>
-          <Link href='/drink_menu'><a>DRINK MENU</a></Link>
+          <Link href='/menu'><a>MENU</a></Link>
         </LinkContainer>
       </TextContainer>
       <ImageContainer>
