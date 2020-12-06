@@ -6,7 +6,7 @@ const MenuCard = ({itemName, ingredients, price, options}) => {
   const renderOptions = (options) => {
    return options.map(option => {
      return (
-      <OptionsContainer key={options.id}>
+      <OptionsContainer key={option.id}>
       <h3>{option.ingredients}</h3>
       <h4>{option.price}</h4>
      </OptionsContainer>
