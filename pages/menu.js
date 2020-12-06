@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 // components
 import MenuCard from '../components/menus/MenuCard';
@@ -39,18 +40,31 @@ const Menu = () => {
 
   return (
     <PageContainer>
-      <NavContainer>
-        <p onClick={changeDrinkMenu}>DINNER MENU</p>
-        <p onClick={changeDinnerMenu}>DRINK MENU</p>
-      </NavContainer>
+      <LinksContainer>
+        <NavLink>
+          <Link href='/'><a>Home</a></Link>
+        </NavLink>
+        <MenuLinks>
+          <p onClick={changeDrinkMenu}>DINNER MENU</p>
+          <p onClick={changeDinnerMenu}>DRINK MENU</p>
+        </MenuLinks>
+      </LinksContainer>
       <MenuContainer>
         {renderMenuItems()}
-        <Warning>
-          * Consuming raw of undercooked meats, poultry, seafood, shellfish, or eggs, may increase your risk of foodborne illness.
-          <br></br>
-          <br></br>
-          Before placing your order, please inform us if you or a person in your party has a food allergy.
-      </Warning>
+        { menuData === dinnerMenuData ? 
+          <Warning>
+            * Consuming raw of undercooked meats, poultry, seafood, shellfish, or eggs, may increase your risk of foodborne illness.
+            <br></br>
+            <br></br>
+            Before placing your order, please inform us if you or a person in your party has a food allergy.
+          </Warning>
+        :
+        <>
+          <Warning>
+            Before placing your order, please inform us if you or a person in your party has a food allergy.
+          </Warning>
+        </>
+        }
       </MenuContainer>
     </PageContainer>
   );
@@ -66,10 +80,32 @@ const PageContainer = styled.div`
   background-size: cover;
 `;
 
-const NavContainer = styled.div`
+const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+`;
+
+const NavLink = styled.div`
   display: flex;
   justify-content: center;
-  p {
+  a {
+    color: #cc82a1;
+    font-size: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+const MenuLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  p, a {
     color: #cc82a1;
     font-size: 30px;
     padding: 0px 20px;
