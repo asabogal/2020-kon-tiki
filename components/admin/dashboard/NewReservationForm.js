@@ -1,28 +1,12 @@
-import {useReducer} from 'react';
+import useInputControl from '../../../hooks/useInputControl';
 import useSubmitForm from '../../../hooks/useSubmitForm';
+import {Input, SubmitButton} from '../../utils/Forms';
 import styled from 'styled-components';
 
-const NewReservationForm = () => {
+const NewuserInputForm = () => {
 
-  const [reservation, setReservation] = useReducer((state, newState) => ({...state, ...newState}),
-    {
-      name: '',
-      phone: '',
-      date: '',
-      guests: '',
-      seating: '',
-      notes: ''
-    }
-  );
-
-  const [submitForm] = useSubmitForm(reservation);
-
-  const handleChange = (e) => {
-    const {name, value} = e.target;
-    setReservation({
-      [name]: value
-    });
-  };
+  const [userInput, handleChange, reset] = useInputControl();
+  const [submitForm] = useSubmitForm(userInput);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,41 +15,41 @@ const NewReservationForm = () => {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <h2>Add New Reservation</h2>
+      <h2>Add New userInput</h2>
       <Form>
-        <input
+        <Input
           placeholder="name"
           type="text"
           name="name"
-          value={reservation.value}
+          value={userInput.value}
           onChange={handleChange}
         />
-        <input
+        <Input
           placeholder="phone"
           type="text"
           name="phone"
-          value={reservation.value}
+          value={userInput.value}
           onChange={handleChange}
         />
-        <input
+        <Input
           placeholder="date"
           type="datetime-local"
           name="date"
-          value={reservation.value}
+          value={userInput.value}
           onChange={handleChange}
         />
-        <input
+        <Input
           placeholder="guests"
           type="text"
           name="guests"
-          value={reservation.value}
+          value={userInput.value}
           onChange={handleChange}
         />
         <SelectField>
           <select
             placeholder="seating"
             name="seating"
-            value={reservation.value}
+            value={userInput.value}
             onChange={handleChange}
           >
             <option value="indoor">Indoor</option>
@@ -74,25 +58,25 @@ const NewReservationForm = () => {
           </select>
         </SelectField>
         <TextAreaField>
-          <textarea
+          <Input
             placeholder='add notes'
+            type='textarea'
             name='notes'
             rows="6"
-            value={reservation.value}
+            width='95%'
+            value={userInput.value}
             onChange={handleChange}
           />
         </TextAreaField>
         <ButtonField>
-          <button type='submit'>
-            Add Reservation
-          </button>
+          <SubmitButton label='Add Reservation'/>
         </ButtonField>
       </Form>
     </FormContainer>
   );
 };
 
-export default NewReservationForm;
+export default NewuserInputForm;
 
 const FormContainer = styled.div`
   margin: 0 auto;
@@ -105,19 +89,6 @@ const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  input {
-    height: 1.5rem;
-    font-size: 16px;
-  }
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-  button {
-    width: 100%;
-    height: 2rem;
-    cursor: pointer;
-  }
 `;
 
 const SelectField = styled.div`
@@ -125,6 +96,7 @@ const SelectField = styled.div`
 `;
 
 const TextAreaField = styled.div`
+  width: 100%;  
   grid-area: 4 / 1 / 4 / 3;
 `;
 

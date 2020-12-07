@@ -1,52 +1,38 @@
-import React, {useReducer, useState, useEffect} from 'react';
+import useInputControl from '../../hooks/useInputControl';
 import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
+import {Input, SubmitButton} from '../utils/Forms';
 
 const Login = () => {
 
-  const [userInput, setUserInput] = useReducer((state, newState) => ({...state, ...newState}),
-  {
-    user: '',
-    password: ''
-  }  
-);
-
+  const [userInput, handleChange, reset] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
-
-  const handleChange = (e) => {
-    const {name, value} = e.target;
-    setUserInput({
-      [name]: value
-    });
-  };
-
  
   const handleSubmit = (e) => {
     e.preventDefault();
     submitForm();
+    reset();
   };
 
   return (
     <FormContainer>
       <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
-      <input
-        placeholder="user"
-        type="text"
-        name="user"
+      <Input
+        placeholder="username"
+        type="textarea"
+        name="username"
         value={userInput.value}
         onChange={handleChange}
       />
-      <input
+      <Input
         placeholder="password"
         type="password"
         name="password"
         value={userInput.value}
         onChange={handleChange}
       />
-      <Button type='submit'>
-        Submit
-      </Button>
+      <SubmitButton label='Login'/>
       </form>
     </FormContainer>
   );
@@ -68,23 +54,4 @@ const FormContainer = styled.div`
     display: grid;
     grid-gap: 10px
   }
-  input {
-    border: 1px thin black;
-    height: 20px;
-    font-size: 1rem;
-    padding: 5px;
-  }
-  a {
-    &:hover {
-      font-weight: bold;
-    }
-  }
-`;
-
-const Button = styled.button`
-  width: 100%;
-  height: 5vh;
-  background-color: black;
-  color: white;
-  cursor: pointer;
 `;
