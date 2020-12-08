@@ -63,9 +63,32 @@ const useInputcontrol = () => {
     }
   ];
 
+  const TELEPHONE_VALIDATORS = [
+    {
+      type: 'require',
+      error: "can't be blank."
+    },
+    {
+      type: 'numbersOnly',
+      error: "must only have number digits."
+    },
+    {
+      type: 'minLength',
+      error: 'must be at least 10 digits long.'
+    },
+    {
+      type: 'maxLength',
+      error: 'must be 10 digits max.'
+    }
+  ]
+
   const validEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
+
+  const numbersOnly = (input) => {
+    return /^\d+$/.test(input);
+  }
 
 
   const validateInput = (e) => {
@@ -140,6 +163,47 @@ const useInputcontrol = () => {
             }
           })
         }   
+      }
+    };
+    if (type === 'tel') {
+      if (!numbersOnly(value)) {
+        setInputErrors({
+          ...inputErrors,
+          [name]: {
+            isValid: false,
+            errors: [`${name} must only have number digits.`]
+          }
+        })
+        return;
+      }
+      for (const validator of TELEPHONE_VALIDATORS) {
+        if (validator.type === 'require' && value.trim().length <= 0) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }
+        if (validator.type === 'minLength' && value.trim().length <= 9) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }
+        if (validator.type === 'maxLength' && value.trim().length > 10) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }      
       }
     };
 
