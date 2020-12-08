@@ -41,34 +41,112 @@ const useInputcontrol = () => {
     }
   ];
 
-  const validateTextInput = (e) => {
-    const {name, value} = e.target;
-
-    for (const validator of TEXT_VALIDATORS) {
-      if (validator.type === 'require' && value.trim().length <= 0) {
-        setInputErrors({
-          ...inputErrors,
-          [name]: {
-            isValid: false,
-            errors: [`${name} ${validator.error}`]
-          }
-        })
-        return;
-      }
-      if (validator.type === 'minLength' && value.trim().length <= 3) {
-        setInputErrors({
-          ...inputErrors,
-          [name]: {
-            isValid: false,
-            errors: [`${name} ${validator.error}`]
-          }
-        })
-      }   
+  const PASSWORD_VALIDATORS = [
+    {
+      type: 'require',
+      error: "can't be blank."
+    },
+    {
+      type: 'minLength',
+      error: 'must be at least 8 characters long.'
     }
+  ];
+
+  const EMAIL_VALIDATORS = [
+    {
+      type: 'require',
+      error: "can't be blank."
+    },
+    {
+      type: 'emailFormat',
+      error: 'format is invalid.'
+    }
+  ];
+
+  const validEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+
+  const validateInput = (e) => {
+    const {name, value, type} = e.target;
+
+    if (type === 'text') {
+      for (const validator of TEXT_VALIDATORS) {
+        if (validator.type === 'require' && value.trim().length <= 0) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }
+        if (validator.type === 'minLength' && value.trim().length <= 3) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }   
+      }
+    };
+
+    if (type === 'email') {
+      console.log(validEmail(value))
+      for (const validator of EMAIL_VALIDATORS) {
+        if (validator.type === 'require' && value.trim().length <= 0) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+          return;
+        }
+        if (validator.type === 'emailFormat' && !validEmail(value)) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }   
+      }
+    };
+
+    if (type === 'password') {
+      for (const validator of PASSWORD_VALIDATORS) {
+        if (validator.type === 'require' && value.trim().length <= 0) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+          return;
+        }
+        if (validator.type === 'minLength' && value.trim().length <= 7) {
+          setInputErrors({
+            ...inputErrors,
+            [name]: {
+              isValid: false,
+              errors: [`${name} ${validator.error}`]
+            }
+          })
+        }   
+      }
+    };
+
   }
 
   
-  return [userInput, handleChange, reset, inputErrors, validateTextInput];
+  return [userInput, handleChange, reset, inputErrors, validateInput];
 };
 
 export default useInputcontrol;
