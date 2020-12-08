@@ -19,7 +19,7 @@ const useInputcontrol = () => {
         ...inputErrors,
         [name]: {
           isValid: true,
-          errors: []
+          errors: ''
         }
       })
     }
@@ -57,6 +57,7 @@ const useInputcontrol = () => {
       }
       if (validator.type === 'minLength' && value.trim().length <= 3) {
         setInputErrors({
+          ...inputErrors,
           [name]: {
             isValid: false,
             errors: [`${name} ${validator.error}`]
