@@ -15,7 +15,7 @@ const NewuserInputForm = () => {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <h2>Add New userInput</h2>
+      <h2>Add New Reservation</h2>
       <Form>
         <Input
           placeholder="name"
