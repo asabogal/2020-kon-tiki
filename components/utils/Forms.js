@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = ({placeholder, type, name, value, rows, width, onChange, onBlur, error}) => {
+export const Input = ({placeholder, type, name, value, rows, width, onChange, onBlur, isValid, error}) => {
   return (
     <>
       {
@@ -13,6 +13,7 @@ export const Input = ({placeholder, type, name, value, rows, width, onChange, on
             value={value}
             onChange={onChange}
             onBlur={onBlur}
+            isValid={isValid}
             error={error}
           />
         )
@@ -25,6 +26,7 @@ export const Input = ({placeholder, type, name, value, rows, width, onChange, on
             value={value}
             onChange={onChange}
             onBlur={onBlur}
+            isValid={isValid}
             error={error}
           />
         )
@@ -41,8 +43,24 @@ export const SubmitButton = ({label}) => {
   );
 }
 
+export const Error = styled.p`
+  color: aqua;
+  font-size:  0.8rem;
+  margin-block-start: 5px;
+  margin-block-end: 0px;
+  @media (max-width: 575.98px) { 
+    font-size: 0.6rem;
+  }
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const InputField = styled.input`
-  border: 1px thin black;
+  position: relative;
+  border: ${((props) => !props.isValid ? '2px solid red' : '1px solid black')};
   height: 20px;
   font-size: 1rem;
   padding: 5px;
