@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = ({placeholder, type, name, value, rows, width, onChange, onBlur, isValid, error}) => {
+export const Input = ({placeholder, type, name, value, rows, min, width, onChange, onBlur, isValid, error}) => {
   return (
     <>
       {
@@ -23,6 +23,7 @@ export const Input = ({placeholder, type, name, value, rows, width, onChange, on
             placeholder={placeholder}
             type={type}
             name={name}
+            min={min}
             value={value}
             onChange={onChange}
             onBlur={onBlur}
