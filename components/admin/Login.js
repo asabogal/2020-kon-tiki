@@ -1,11 +1,11 @@
 import useInputControl from '../../hooks/useInputControl';
 import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
-import {Input, SubmitButton} from '../utils/Forms';
+import {Input, SubmitButton, Error} from '../utils/Forms';
 
 const Login = () => {
 
-  const [userInput, handleChange, reset] = useInputControl();
+  const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
  
   const handleSubmit = (e) => {
@@ -18,20 +18,27 @@ const Login = () => {
     <FormContainer>
       <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
+       
       <Input
         placeholder="username"
-        type="textarea"
+        type="text"
         name="username"
         value={userInput.value}
         onChange={handleChange}
+        onBlur={validateInput}
+        isValid={!inputErrors.username ? true : inputErrors.username.isValid}
       />
+      {inputErrors.username && <Error>{inputErrors.username.errors}</Error>}
       <Input
         placeholder="password"
         type="password"
         name="password"
         value={userInput.value}
         onChange={handleChange}
+        onBlur={validateInput}
+        isValid={!inputErrors.password ? true : inputErrors.password.isValid}
       />
+      {inputErrors.password && <Error>{inputErrors.password.errors}</Error>}
       <SubmitButton label='Login'/>
       </form>
     </FormContainer>
