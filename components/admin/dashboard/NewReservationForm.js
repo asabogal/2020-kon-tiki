@@ -1,51 +1,74 @@
 import useInputControl from '../../../hooks/useInputControl';
 import useSubmitForm from '../../../hooks/useSubmitForm';
-import {Input, SubmitButton} from '../../utils/Forms';
+import {InputWrapper, Input, SubmitButton, Error} from '../../utils/Forms';
 import styled from 'styled-components';
 
 const NewuserInputForm = () => {
 
-  const [userInput, handleChange, reset] = useInputControl();
+  const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     submitForm();
+    reset();
   };
 
   return (
     <FormContainer onSubmit={handleSubmit}>
       <h2>Add New Reservation</h2>
       <Form>
-        <Input
-          placeholder="name"
-          type="text"
-          name="name"
-          value={userInput.value}
-          onChange={handleChange}
+        <InputWrapper>
+          <Input
+            placeholder="name"
+            type="text"
+            name="name"
+            value={userInput.value}
+            onChange={handleChange}
+            onBlur={validateInput}
+            isValid={!inputErrors.name ? true : inputErrors.name.isValid}
         />
-        <Input
-          placeholder="phone"
-          type="text"
-          name="phone"
-          value={userInput.value}
-          onChange={handleChange}
+          {inputErrors.name && <Error>{inputErrors.name.errors}</Error>}
+        </InputWrapper>
+        <InputWrapper>
+          <Input
+            placeholder="phone number"
+            type="tel"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            name="phone"
+            value={userInput.value}
+            onChange={handleChange}
+            onBlur={validateInput}
+            isValid={!inputErrors.phone ? true : inputErrors.phone.isValid}
         />
-        <Input
-          placeholder="date"
-          type="datetime-local"
-          name="date"
-          value={userInput.value}
-          onChange={handleChange}
+        {inputErrors.phone && <Error>{inputErrors.phone.errors}</Error>}
+        </InputWrapper>
+        <InputWrapper>
+          <Input
+            placeholder="date"
+            type="datetime-local"
+            name="date"
+            value={userInput.value}
+            onChange={handleChange}
+            isValid
         />
-        <Input
-          placeholder="guests"
-          type="text"
-          name="guests"
-          value={userInput.value}
-          onChange={handleChange}
+        </InputWrapper>
+        <InputWrapper>
+          <Input
+            placeholder="guests"
+            type="number"
+            min="1"
+            name="guests"
+            value={userInput.value}
+            onChange={handleChange}
+            onBlur={validateInput}
+            isValid={!inputErrors.guests ? true : inputErrors.guests.isValid}
         />
+          {inputErrors.guests && <Error>{inputErrors.guests.errors}</Error>}
+        </InputWrapper>
         <SelectField>
+          <label>
+            Seating Peference  :
           <select
             placeholder="seating"
             name="seating"
@@ -56,6 +79,7 @@ const NewuserInputForm = () => {
             <option value="garden">Garden</option>
             <option value="patio">Patio</option>
           </select>
+        </label>
         </SelectField>
         <TextAreaField>
           <Input
@@ -92,6 +116,10 @@ const Form = styled.form`
 `;
 
 const SelectField = styled.div`
+  select {
+    margin-left: 20%;
+    padding: 0 20px;
+  }
   grid-area: 3 / 1 / 3 / 3; 
 `;
 

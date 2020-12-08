@@ -1,7 +1,7 @@
 import useInputControl from '../../hooks/useInputControl';
 import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
-import {Input, SubmitButton, Error} from '../utils/Forms';
+import {InputWrapper, Input, SubmitButton, Error} from '../utils/Forms';
 
 const Login = () => {
 
@@ -18,7 +18,7 @@ const Login = () => {
     <FormContainer>
       <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
-       
+      <InputWrapper>
       <Input
         placeholder="username"
         type="text"
@@ -28,17 +28,20 @@ const Login = () => {
         onBlur={validateInput}
         isValid={!inputErrors.username ? true : inputErrors.username.isValid}
       />
-      {inputErrors.username && <Error>{inputErrors.username.errors}</Error>}
-      <Input
-        placeholder="password"
-        type="password"
-        name="password"
-        value={userInput.value}
-        onChange={handleChange}
-        onBlur={validateInput}
-        isValid={!inputErrors.password ? true : inputErrors.password.isValid}
-      />
-      {inputErrors.password && <Error>{inputErrors.password.errors}</Error>}
+        {inputErrors.username && <Error>{inputErrors.username.errors}</Error>}
+      </InputWrapper>
+      <InputWrapper>
+        <Input
+          placeholder="password"
+          type="password"
+          name="password"
+          value={userInput.value}
+          onChange={handleChange}
+          onBlur={validateInput}
+          isValid={!inputErrors.password ? true : inputErrors.password.isValid}
+        />
+          {inputErrors.password && <Error>{inputErrors.password.errors}</Error>}
+      </InputWrapper>
       <SubmitButton label='Login'/>
       </form>
     </FormContainer>
@@ -57,7 +60,6 @@ const FormContainer = styled.div`
     color: white;
   }
   form {
-    width: 300px;
     display: grid;
     grid-gap: 10px
   }
