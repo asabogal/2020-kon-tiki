@@ -1,17 +1,50 @@
+import {useState, useEffect} from 'react';
 import useInputControl from '../../hooks/useInputControl';
 import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
-import {InputWrapper, Input, SubmitButton, Error} from '../utils/Forms';
+import {InputWrapper, Input, SubmitButton, Error, FormErrors} from '../utils/Forms';
 
 const Login = () => {
 
+
   const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
- 
+  const [formErrors, setFormErrors] = useState('');
+  
+  const validateForm = () => {
+    const form = {
+      erros: '',
+      isValid: true
+    };
+
+    const {username, password} = userInput;
+    if (!username || !password) {
+      form.errors = 'all fields are required to login'
+      form.isValid = false;
+      return form;;
+    }
+
+    for (const error in inputErrors) {
+      if (!inputErrors[error].isValid) {
+        form.errors = ''
+        form.isValid = false;
+        return form;
+        }
+      } 
+
+    return form;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitForm();
-    reset();
+    const form = validateForm();
+    if (!form.isValid) {
+      setFormErrors(form.errors);
+      alert ('invalid form')
+    } else {
+      submitForm();
+      reset();
+    }
   };
 
   return (
@@ -42,7 +75,10 @@ const Login = () => {
         />
           {inputErrors.password && <Error>{inputErrors.password.errors}</Error>}
       </InputWrapper>
-      <SubmitButton label='Login'/>
+      <SubmitButton label='Login' onBlur={() => setFormErrors('')}/>
+      <FormErrors>
+        <p>{formErrors}</p> 
+      </FormErrors>
       </form>
     </FormContainer>
   );
