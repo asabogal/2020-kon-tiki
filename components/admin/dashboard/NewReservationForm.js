@@ -1,17 +1,50 @@
+import {useState, useEffect} from 'react';
 import useInputControl from '../../../hooks/useInputControl';
 import useSubmitForm from '../../../hooks/useSubmitForm';
-import {InputWrapper, Input, SubmitButton, Error} from '../../utils/Forms';
+import {InputWrapper, Input, SubmitButton, Error, FormErrors} from '../../utils/Forms';
 import styled from 'styled-components';
 
 const NewuserInputForm = () => {
 
   const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
+  const [formErrors, setFormErrors] = useState('');
+
+  const validateForm = () => {
+    const form = {
+      erros: '',
+      isValid: true
+    };
+
+    const {guest, phone, date, guests} = userInput;
+    if (!guest || !phone || !date || !guests) {
+      form.errors = 'guest name, phone number, date, and number of guests must be entered'
+      form.isValid = false;
+      return form;;
+    }
+
+    for (const error in inputErrors) {
+      if (!inputErrors[error].isValid) {
+        form.errors = ''
+        form.isValid = false;
+        return form;
+        }
+      } 
+
+    return form;
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitForm();
-    reset();
+    const form = validateForm();
+    if (!form.isValid) {
+      setFormErrors(form.errors);
+      alert ('invalid form')
+    } else {
+      submitForm();
+      reset();
+    }
   };
 
   return (
@@ -20,15 +53,15 @@ const NewuserInputForm = () => {
       <Form>
         <InputWrapper>
           <Input
-            placeholder="name"
+            placeholder="guest name"
             type="text"
-            name="name"
+            name="guest"
             value={userInput.value}
             onChange={handleChange}
             onBlur={validateInput}
-            isValid={!inputErrors.name ? true : inputErrors.name.isValid}
+            isValid={!inputErrors.guest ? true : inputErrors.guest.isValid}
         />
-          {inputErrors.name && <Error>{inputErrors.name.errors}</Error>}
+          {inputErrors.guest && <Error>{inputErrors.guest.errors}</Error>}
         </InputWrapper>
         <InputWrapper>
           <Input
@@ -55,7 +88,7 @@ const NewuserInputForm = () => {
         </InputWrapper>
         <InputWrapper>
           <Input
-            placeholder="guests"
+            placeholder="number of guests"
             type="number"
             min="1"
             name="guests"
@@ -95,6 +128,11 @@ const NewuserInputForm = () => {
         <ButtonField>
           <SubmitButton label='Add Reservation'/>
         </ButtonField>
+        <FormErrorsSection>
+          <FormErrors>
+            <p>{formErrors}</p> 
+          </FormErrors>
+        </FormErrorsSection>
       </Form>
     </FormContainer>
   );
@@ -131,5 +169,9 @@ const TextAreaField = styled.div`
 const ButtonField = styled.div`
   grid-area: 5 / 1 / 5 / 3;
 `;
+
+const FormErrorsSection = styled.div`
+  grid-area: 6 / 1 / 6 / 3;
+`
 
 

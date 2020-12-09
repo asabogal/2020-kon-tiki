@@ -52,15 +52,15 @@ const Login = () => {
       <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
       <InputWrapper>
-      <Input
-        placeholder="username"
-        type="text"
-        name="username"
-        value={userInput.value}
-        onChange={handleChange}
-        onBlur={validateInput}
-        isValid={!inputErrors.username ? true : inputErrors.username.isValid}
-      />
+        <Input
+          placeholder="username"
+          type="text"
+          name="username"
+          value={userInput.value}
+          onChange={handleChange}
+          onBlur={validateInput}
+          isValid={!inputErrors.username ? true : inputErrors.username.isValid}
+        />
         {inputErrors.username && <Error>{inputErrors.username.errors}</Error>}
       </InputWrapper>
       <InputWrapper>
