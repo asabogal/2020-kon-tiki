@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useRouter} from 'next/router';
 import useInputControl from '../../../hooks/useInputControl';
 import useSubmitForm from '../../../hooks/useSubmitForm';
@@ -16,8 +16,6 @@ const MenuForm = ({itemId, menuType}) => {
 
   const router = useRouter();
   const path = router.pathname.split('/').pop().toUpperCase();
-
-  useEffect(() => console.log('options are', options), [options])
 
   const validateForm = () => {
     const form = {
@@ -46,7 +44,7 @@ const MenuForm = ({itemId, menuType}) => {
   const renderOptions = () => {
     return options.map((options, index )=> {
       return (
-        <OptionsContainer>
+        <OptionsContainer key={index}>
           <OptionsInputs>
             <InputWrapper>
               <Input
@@ -111,7 +109,6 @@ const MenuForm = ({itemId, menuType}) => {
 
   return (
     <FormContainer>
-      <h2>ADD {path} {menuType.toUpperCase()} ITEM</h2>
       <Form onSubmit={handleSubmit}>
         <InputWrapper>
           <Input
@@ -151,33 +148,6 @@ const MenuForm = ({itemId, menuType}) => {
         </InputWrapper>
         <h3>OPTIONS:</h3>
         {renderOptions()}
-        {/* <OptionsContainer>
-          <OptionsInputs>
-            <InputWrapper>
-              <Input
-                placeholder="Option Ingredients"
-                type="textarea"
-                name="ingredients"
-                value={options.ingredients}
-                onChange={(event) => handleOptionsChange(index, event)}
-              />
-            </InputWrapper>
-            <InputWrapper>
-              <Input
-                placeholder="Option Price"
-                type="text"
-                name="optionPrice"
-                value={options.optionPrice}
-                onChange={handleOptionsChange}
-                isValid
-              />
-            </InputWrapper>
-          </OptionsInputs>
-          <OptionsButtons>
-            <h4 onClick={() => console.log('clicked')}>+ Add Option</h4>
-            <h4 onClick={() => console.log('clicked')}>- Remove Option</h4>
-          </OptionsButtons>
-        </OptionsContainer> */}
         <SubmitButton label={path === 'NEW' ? 'Add Item' : 'Edit Item'}/>
         <FormErrors>
           <p>{formErrors}</p> 
