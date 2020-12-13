@@ -11,11 +11,13 @@ const MenuForm = ({itemId, menuType}) => {
   const [submitForm] = useSubmitForm(userInput);
   const [formErrors, setFormErrors] = useState('');
   const [options, setOptions] = useState([
-    { ingredients: '', optionPrice: ''}
+    { id: 1, ingredients: '', price: ''},
   ])
 
   const router = useRouter();
   const path = router.pathname.split('/').pop().toUpperCase();
+
+  useEffect(() => console.log('options are', options), [options])
 
   const validateForm = () => {
     const form = {
@@ -41,10 +43,55 @@ const MenuForm = ({itemId, menuType}) => {
     return form;
   };
 
+  const renderOptions = () => {
+    return options.map((options, index )=> {
+      return (
+        <OptionsContainer>
+          <OptionsInputs>
+            <InputWrapper>
+              <Input
+                placeholder="Option Ingredients"
+                type="textarea"
+                name="ingredients"
+                value={options.ingredients}
+                onChange={(event) => handleOptionsChange(index, event)}
+              />
+          </InputWrapper>
+          <InputWrapper>
+            <Input
+              placeholder="Option Price"
+              type="text"
+              name="optionPrice"
+              value={options.optionPrice}
+              onChange={(event) => handleOptionsChange(index, event)}
+              isValid
+            />
+        </InputWrapper>
+        </OptionsInputs>
+          <OptionsButtons>
+            <h4 onClick={addOption}>+ Add Option</h4>
+            <h4 onClick={() => removeOption(index)}>- Remove Option</h4>
+          </OptionsButtons>
+      </OptionsContainer>
+      )
+    })
+  };
+
   const handleOptionsChange = (index, event) => {
-    const {name, value} = event.target.value;
+    const {name, value} = event.target;
     const values = [...options];
-    values[index][name] = value
+    values[index][name] = value;
+    setOptions(values);
+  };
+  
+  const addOption = () => {
+    const optId = options[options.length - 1].id + 1;
+    setOptions(options.concat({id: optId, ingredients: '', price: ''}));
+  };
+
+  const removeOption = (index) => {
+    const values = [...options];
+    values.splice(index, 1);
     setOptions(values);
   };
 
@@ -103,7 +150,8 @@ const MenuForm = ({itemId, menuType}) => {
           {inputErrors.price && <Error>{inputErrors.price.errors}</Error>}
         </InputWrapper>
         <h3>OPTIONS:</h3>
-        <OptionsContainer>
+        {renderOptions()}
+        {/* <OptionsContainer>
           <OptionsInputs>
             <InputWrapper>
               <Input
@@ -129,7 +177,7 @@ const MenuForm = ({itemId, menuType}) => {
             <h4 onClick={() => console.log('clicked')}>+ Add Option</h4>
             <h4 onClick={() => console.log('clicked')}>- Remove Option</h4>
           </OptionsButtons>
-        </OptionsContainer>
+        </OptionsContainer> */}
         <SubmitButton label={path === 'NEW' ? 'Add Item' : 'Edit Item'}/>
         <FormErrors>
           <p>{formErrors}</p> 
@@ -145,7 +193,7 @@ const FormContainer = styled.div`
   margin: 0 auto;
   text-align: center;
   color: white;
-  padding-top: 3rem;
+  padding: 3rem 0;
   width: 100%;
 `;
 
@@ -157,6 +205,9 @@ const Form = styled.form`
 const OptionsContainer = styled.div`
   display: grid;
   grid-template-columns: 60% 40%;
+  margin-bottom: 3vh;
+  padding-bottom: 1vh;
+  border-bottom: 1px solid white;
 `;
 
 const OptionsInputs = styled.div`
