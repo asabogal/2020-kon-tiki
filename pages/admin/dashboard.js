@@ -3,11 +3,11 @@ import NavHeader from '../../components/admin/dashboard/NavHeader';
 import SideBar from '../../components/admin/dashboard/SideBar';
 import NewReservationForm from '../../components/admin/dashboard/NewReservationForm';
 // styled 
-import {AdminPageContainer, DashboardContainer, DashboardContent} from '../../components/styled/pages';
+import {LoginPageContainer, DashboardContainer, DashboardContent} from '../../components/styled/pages';
 
 const Dashboard = () => {
   return (
-    <AdminPageContainer>
+    <LoginPageContainer>
       <DashboardContainer>
         <NavHeader/>
         <DashboardContent>
@@ -15,7 +15,7 @@ const Dashboard = () => {
           <NewReservationForm/>
         </DashboardContent>
       </DashboardContainer>
-    </AdminPageContainer>
+    </LoginPageContainer>
   );
 };
 
