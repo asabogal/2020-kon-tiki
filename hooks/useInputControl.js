@@ -1,9 +1,9 @@
 import {useReducer, useState} from 'react';
 
-const useInputcontrol = ({initialData}) => {
+const useInputcontrol = () => {
 
   const [userInput, setUserInput] = useReducer((state, newState) => ({...state, ...newState}), 
-    {...initialData}  
+    {}  
   );
 
   const [inputErrors, setInputErrors] = useState({})

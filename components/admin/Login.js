@@ -7,7 +7,7 @@ import {InputWrapper, Input, SubmitButton, Error, FormErrors} from '../utils/For
 const Login = () => {
 
 
-  const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl({});
+  const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
   const [formErrors, setFormErrors] = useState('');
   
