@@ -2,13 +2,13 @@
 import Login from '../../components/admin/Login';
 
 // styles 
-import {AdminPageContainer} from '../../components/styled/pages';
+import {LoginPageContainer} from '../../components/styled/pages';
 
 const index = () => {
   return (
-    <AdminPageContainer>
+    <LoginPageContainer>
       <Login/>
-    </AdminPageContainer>
+    </LoginPageContainer>
   );
 };
 
