@@ -6,11 +6,15 @@ import {InputWrapper, Input, SubmitButton, Error, FormErrors} from '../../utils/
 import styled from 'styled-components';
 
 const MenuForm = ({itemId, menuType}) => {
+  const data = undefined;
+  // should received data from /admin/menus.../new or /admin/menus.../edit
+  // this data is passed as params for useInputControl hook
+  // options state is then initialized with data.options ||  { id: 1, ingredients: '', price: ''}
 
   const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
   const [formErrors, setFormErrors] = useState('');
-  const [options, setOptions] = useState([
+  const [options, setOptions] = useState(data || [
     { id: 1, ingredients: '', price: ''},
   ])
 
@@ -60,7 +64,7 @@ const MenuForm = ({itemId, menuType}) => {
               placeholder="Option Price"
               type="text"
               name="optionPrice"
-              value={options.optionPrice}
+              value={options.price}
               onChange={(event) => handleOptionsChange(index, event)}
               isValid
             />
@@ -115,7 +119,7 @@ const MenuForm = ({itemId, menuType}) => {
             placeholder="Item Name"
             type="text"
             name="itemName"
-            value={userInput.value}
+            value={userInput.itemName}
             onChange={handleChange}
             onBlur={validateInput}
             isValid={!inputErrors.itemName ? true : inputErrors.itemName.isValid}
@@ -127,7 +131,7 @@ const MenuForm = ({itemId, menuType}) => {
             placeholder="Ingredients"
             type="text"
             name="ingredients"
-            value={userInput.value}
+            value={userInput.ingredients}
             onChange={handleChange}
             onBlur={validateInput}
             isValid={!inputErrors.ingredients ? true : inputErrors.ingredients.isValid}
@@ -139,7 +143,7 @@ const MenuForm = ({itemId, menuType}) => {
             placeholder="Price"
             type="text"
             name="price"
-            value={userInput.value}
+            value={userInput.price}
             onChange={handleChange}
             onBlur={validateInput}
             isValid={!inputErrors.price ? true : inputErrors.price.isValid}
