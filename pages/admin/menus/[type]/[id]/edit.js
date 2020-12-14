@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 // components
 import MenuForm from '../../../../../components/admin/menus/MenuForm';
-import Loader from '../../../../../components/utils/Loader';
 // styled
 import { MenusPageContainer, MenuFormContainer } from '../../../../../components/styled/pages';
 
