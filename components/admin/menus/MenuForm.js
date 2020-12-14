@@ -1,25 +1,17 @@
-import {useState} from 'react';
-import {useRouter} from 'next/router';
+import { useState } from 'react';
 import useInputControl from '../../../hooks/useInputControl';
 import useSubmitForm from '../../../hooks/useSubmitForm';
-import {InputWrapper, Input, SubmitButton, Error, FormErrors} from '../../utils/Forms';
+import { InputWrapper, Input, SubmitButton, Error, FormErrors } from '../../utils/Forms';
 import styled from 'styled-components';
 
-const MenuForm = ({itemId, menuType}) => {
-  const data = undefined;
-  // should received data from /admin/menus.../new or /admin/menus.../edit
-  // this data is passed as params for useInputControl hook
-  // options state is then initialized with data.options ||  { id: 1, ingredients: '', price: ''}
+const MenuForm = ({ formType, menuData, formData }) => {
 
-  const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
+  const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl(formData || {});
   const [submitForm] = useSubmitForm(userInput);
   const [formErrors, setFormErrors] = useState('');
-  const [options, setOptions] = useState(data || [
-    { id: 1, ingredients: '', price: ''},
+  const [options, setOptions] = useState(formData !== undefined ? formData.options : [
+    { id: 1, ingredients: '', price: '' },
   ])
-
-  const router = useRouter();
-  const path = router.pathname.split('/').pop().toUpperCase();
 
   const validateForm = () => {
     const form = {
@@ -27,7 +19,7 @@ const MenuForm = ({itemId, menuType}) => {
       isValid: true
     };
 
-    const {itemName, ingredients, price} = userInput;
+    const { itemName, ingredients, price } = userInput;
     if (!itemName || !ingredients || !price) {
       form.errors = 'item name, ingredients and price must be entered'
       form.isValid = false;
@@ -39,14 +31,14 @@ const MenuForm = ({itemId, menuType}) => {
         form.errors = ''
         form.isValid = false;
         return form;
-        }
-      } 
+      }
+    }
 
     return form;
   };
 
   const renderOptions = () => {
-    return options.map((options, index )=> {
+    return options.map((options, index) => {
       return (
         <OptionsContainer key={index}>
           <OptionsInputs>
@@ -58,37 +50,37 @@ const MenuForm = ({itemId, menuType}) => {
                 value={options.ingredients}
                 onChange={(event) => handleOptionsChange(index, event)}
               />
-          </InputWrapper>
-          <InputWrapper>
-            <Input
-              placeholder="Option Price"
-              type="text"
-              name="optionPrice"
-              value={options.price}
-              onChange={(event) => handleOptionsChange(index, event)}
-              isValid
-            />
-        </InputWrapper>
-        </OptionsInputs>
+            </InputWrapper>
+            <InputWrapper>
+              <Input
+                placeholder="Option Price"
+                type="text"
+                name="optionPrice"
+                value={options.price}
+                onChange={(event) => handleOptionsChange(index, event)}
+                isValid
+              />
+            </InputWrapper>
+          </OptionsInputs>
           <OptionsButtons>
             <h4 onClick={addOption}>+ Add Option</h4>
             <h4 onClick={() => removeOption(index)}>- Remove Option</h4>
           </OptionsButtons>
-      </OptionsContainer>
+        </OptionsContainer>
       )
     })
   };
 
   const handleOptionsChange = (index, event) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     const values = [...options];
     values[index][name] = value;
     setOptions(values);
   };
-  
+
   const addOption = () => {
     const optId = options[options.length - 1].id + 1;
-    setOptions(options.concat({id: optId, ingredients: '', price: ''}));
+    setOptions(options.concat({ id: optId, ingredients: '', price: '' }));
   };
 
   const removeOption = (index) => {
@@ -103,8 +95,11 @@ const MenuForm = ({itemId, menuType}) => {
     const form = validateForm();
     if (!form.isValid) {
       setFormErrors(form.errors);
-      alert ('invalid form')
+      alert('invalid form');
     } else {
+      const payload = userInput;
+      payload.options = options;
+      console.log('payload is', payload)
       submitForm();
       reset();
     }
@@ -152,9 +147,9 @@ const MenuForm = ({itemId, menuType}) => {
         </InputWrapper>
         <h3>OPTIONS:</h3>
         {renderOptions()}
-        <SubmitButton label={path === 'NEW' ? 'Add Item' : 'Edit Item'}/>
+        <SubmitButton label={formType === 'new' ? 'Add Item' : 'Edit Item'} />
         <FormErrors>
-          <p>{formErrors}</p> 
+          <p>{formErrors}</p>
         </FormErrors>
       </Form>
     </FormContainer>
