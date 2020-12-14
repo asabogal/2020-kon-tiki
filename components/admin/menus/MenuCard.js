@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
-const MenuCard = ({id, itemName, ingredients, price, options}) => {
+const MenuCard = ({id, itemName, ingredients, price, options, menuType}) => {
 
   const renderOptions = (options) => {
     return options.map(option => {
@@ -22,7 +23,7 @@ const MenuCard = ({id, itemName, ingredients, price, options}) => {
         <p><strong>Options:</strong></p>{renderOptions(options)}
       </InfoContainer>
       <Buttons>
-        <button style={{backgroundColor: 'aqua'}}>EDIT</button> 
+        <Link as={`menus/${menuType}/${id}/edit`} href='/admin/menus/[type]/[id]/edit'><button style={{backgroundColor: 'aqua'}}>EDIT</button></Link> 
         <button style={{backgroundColor: 'pink'}}>DELETE</button>
       </Buttons>
     </CardContainer>
@@ -49,10 +50,14 @@ const InfoContainer = styled.div`
 
 const Buttons = styled.div`
    align-self: center;
-   button {
+  button {
      padding: 1vh 1vw;
      margin-left: 2vw;
      cursor: pointer;
+   }
+   a {
+     color: inherit;
+     text-decoration: none;
    }
 `;
 
