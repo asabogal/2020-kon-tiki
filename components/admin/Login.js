@@ -1,8 +1,8 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import useInputControl from '../../hooks/useInputControl';
 import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
-import {InputWrapper, Input, SubmitButton, Error, FormErrors} from '../utils/Forms';
+import { InputWrapper, Input, SubmitButton, Error, FormErrors } from '../utils/Forms';
 
 const Login = () => {
 
@@ -10,14 +10,14 @@ const Login = () => {
   const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
   const [formErrors, setFormErrors] = useState('');
-  
+
   const validateForm = () => {
     const form = {
       erros: '',
       isValid: true
     };
 
-    const {username, password} = userInput;
+    const { username, password } = userInput;
     if (!username || !password) {
       form.errors = 'all fields are required to login'
       form.isValid = false;
@@ -29,8 +29,8 @@ const Login = () => {
         form.errors = ''
         form.isValid = false;
         return form;
-        }
-      } 
+      }
+    }
 
     return form;
   }
@@ -40,7 +40,7 @@ const Login = () => {
     const form = validateForm();
     if (!form.isValid) {
       setFormErrors(form.errors);
-      alert ('invalid form')
+      alert('invalid form')
     } else {
       submitForm();
       reset();
@@ -51,34 +51,34 @@ const Login = () => {
     <FormContainer>
       <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
-      <InputWrapper>
-        <Input
-          placeholder="username"
-          type="text"
-          name="username"
-          value={userInput.value}
-          onChange={handleChange}
-          onBlur={validateInput}
-          isValid={!inputErrors.username ? true : inputErrors.username.isValid}
-        />
-        {inputErrors.username && <Error>{inputErrors.username.errors}</Error>}
-      </InputWrapper>
-      <InputWrapper>
-        <Input
-          placeholder="password"
-          type="password"
-          name="password"
-          value={userInput.value}
-          onChange={handleChange}
-          onBlur={validateInput}
-          isValid={!inputErrors.password ? true : inputErrors.password.isValid}
-        />
+        <InputWrapper>
+          <Input
+            placeholder="username"
+            type="text"
+            name="username"
+            value={userInput.value}
+            onChange={handleChange}
+            onBlur={validateInput}
+            isValid={!inputErrors.username ? true : inputErrors.username.isValid}
+          />
+          {inputErrors.username && <Error>{inputErrors.username.errors}</Error>}
+        </InputWrapper>
+        <InputWrapper>
+          <Input
+            placeholder="password"
+            type="password"
+            name="password"
+            value={userInput.value}
+            onChange={handleChange}
+            onBlur={validateInput}
+            isValid={!inputErrors.password ? true : inputErrors.password.isValid}
+          />
           {inputErrors.password && <Error>{inputErrors.password.errors}</Error>}
-      </InputWrapper>
-      <SubmitButton label='Login' onBlur={() => setFormErrors('')}/>
-      <FormErrors>
-        <p>{formErrors}</p> 
-      </FormErrors>
+        </InputWrapper>
+        <SubmitButton label='Login' onBlur={() => setFormErrors('')} />
+        <FormErrors>
+          <p>{formErrors}</p>
+        </FormErrors>
       </form>
     </FormContainer>
   );
