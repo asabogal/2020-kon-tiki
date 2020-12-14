@@ -4,35 +4,40 @@ export const dinnerMenuData = [
     itemName: 'Dragon Salad',
     ingredients: 'Cabbage, Asian Greens, Herbs, Peanuts, Green Pepper, Citrus Dressing',
     price: 12,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 2,
     itemName: 'Charred Edamame',
     ingredients: 'Seasame Oil, Maldon Salt',
     price: 9,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 3,
     itemName: 'Crispy Brussels Sprouts',
     ingredients: 'Gochujang Sauce, Cabbage, Peanuts',
     price: 12,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 4,
     itemName: 'Sweet Plantain',
     ingredients: 'Guatemalan Cream, Cojita',
     price: 11,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 5,
     itemName: 'Blistered Shishito',
     ingredients: 'Lime, Furikake',
     price: 9,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 6,
@@ -46,7 +51,8 @@ export const dinnerMenuData = [
     itemName: 'Stir Fry Lomain',
     ingredients: 'Shrimp, Egg Noodle, Local Bell Pepper, Five Spice Sauce, Scallions, Peanuts',
     price: 22,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 8,
@@ -69,14 +75,16 @@ export const dinnerMenuData = [
         ingredients: 'Add Fries',
         price: 5
       }
-    ]
+    ],
+    menuType: 'dinner'
   },
   {
     id: 9,
     itemName: 'Seared Calamari',
     ingredients: 'Pork and Chickpeas Stew, Butter, Lime Zest, Parsely',
     price: 18,
-    options: []
+    options: [],
+    menuType: 'dinner'
   },
   {
     id: 10,
@@ -89,6 +97,7 @@ export const dinnerMenuData = [
         ingredients: 'Add Braised Short Ribs',
         price: 12
       }
-    ]
+    ],
+    menuType: 'dinner'
   },
 ];

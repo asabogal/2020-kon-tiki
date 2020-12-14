@@ -4,42 +4,48 @@ export const drinkMenuData = [
     itemName: 'Choconut',
     ingredients: 'Cocunut Cream, Rye Whiskey, Cacao Nibs',
     price: '15',
-    options: []
+    options: [],
+    menuType: 'drink'
   },
   {
     id: 2,
     itemName: 'Spice Girl',
     ingredients: 'Old Fashion Style - Bourbon Whiskey, Allspice Liquor, Bitters',
     price: '15',
-    options: []
+    options: [],
+    menuType: 'drink'
   },
   {
     id: 3,
     itemName: 'Hot Toddy',
     ingredients: 'Rye, Black Tea, Fresh Lemon, Cinnamon Sugar',
     price: '14',
-    options: []
+    options: [],
+    menuType: 'drink'
   },
   {
     id: 4,
     itemName: 'Pinky Promise',
     ingredients: 'St. Germain, Pisco, Prosecco Float',
     price: '14',
-    options: []
+    options: [],
+    menuType: 'drink'
   },
   {
     id: 5,
     itemName: 'Ginseng Soda',
     ingredients: 'Herbaceous Unsweetened Botanical Cola',
     price: '5',
-    options: []
+    options: [],
+    menuType: 'drink'
   },
   {
     id: 6,
     itemName: 'Beer',
     ingredients: 'Red Stripe or IPA',
     price: '6',
-    options: []
+    options: [],
+    menuType: 'drink'
   },
   {
     id: 7,
@@ -72,6 +78,7 @@ export const drinkMenuData = [
         ingredients: 'Macari Rose 2019',
         price: '14/50'
       },
-    ]
+    ],
+    menuType: 'drink'
   }
 ];
