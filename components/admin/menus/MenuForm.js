@@ -55,7 +55,7 @@ const MenuForm = ({ formType, menuData, formData }) => {
               <Input
                 placeholder="Option Price"
                 type="text"
-                name="optionPrice"
+                name="price"
                 value={options.price}
                 onChange={(event) => handleOptionsChange(index, event)}
                 isValid
