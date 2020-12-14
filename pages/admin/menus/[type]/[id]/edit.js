@@ -6,10 +6,9 @@ import Loader from '../../../../../components/utils/Loader';
 // styled
 import { MenusPageContainer, MenuFormContainer } from '../../../../../components/styled/pages';
 
-// data
+// data (these should be fetched from backend)
 import { dinnerMenuData } from '../../../../../dummyData/DinnerMenu';
 import { drinkMenuData } from '../../../../../dummyData/DrinkMenu';
-import { parse } from '@fortawesome/fontawesome-svg-core';
 
 const Edit = ({ id, type, menuData }) => {
 
@@ -24,7 +23,7 @@ const Edit = ({ id, type, menuData }) => {
     <MenusPageContainer>
       <MenuFormContainer>
         <h2>Edit {capitalize(type)} Menu Item</h2>
-        <MenuForm formData={editItem} />
+        <MenuForm formType='edit' formData={editItem} />
       </MenuFormContainer>
     </MenusPageContainer>
   );
