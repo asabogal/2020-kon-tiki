@@ -1,18 +1,23 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const MenuCard = ({id, itemName, ingredients, price, options, menuType}) => {
+const MenuCard = ({ id, itemName, ingredients, price, options, menuType }) => {
+
+  const deleteItem = () => {
+    const userConfirmation = confirm("Are you sure you want to delete this item?")
+    userConfirmation ? alert("Item has been deleted") : window.scrollTo(0, 0);
+  };
 
   const renderOptions = (options) => {
     return options.map(option => {
       return (
-       <OptionsContainer key={option.id}>
-       <p>{option.ingredients} --</p>
-       <p>{option.price}</p>
-      </OptionsContainer>
+        <OptionsContainer key={option.id}>
+          <p>{option.ingredients} </p>
+          <p> - - - {option.price}</p>
+        </OptionsContainer>
       );
     })
-   };
+  };
 
   return (
     <CardContainer key={id}>
@@ -23,8 +28,8 @@ const MenuCard = ({id, itemName, ingredients, price, options, menuType}) => {
         <p><strong>Options:</strong></p>{renderOptions(options)}
       </InfoContainer>
       <Buttons>
-        <Link as={`menus/${menuType}/${id}/edit`} href='/admin/menus/[type]/[id]/edit'><button style={{backgroundColor: 'aqua'}}>EDIT</button></Link> 
-        <button style={{backgroundColor: 'pink'}}>DELETE</button>
+        <Link as={`menus/${menuType}/${id}/edit`} href='/admin/menus/[type]/[id]/edit'><button style={{ backgroundColor: 'aqua' }}>EDIT</button></Link>
+        <button onClick={deleteItem} style={{ backgroundColor: 'pink' }}>DELETE</button>
       </Buttons>
     </CardContainer>
   );
