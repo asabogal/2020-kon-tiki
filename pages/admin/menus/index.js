@@ -1,37 +1,39 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 // components
 import MenuCard from '../../../components/admin/menus/MenuCard';
-// data
-import {dinnerMenuData} from '../../../dummyData/DinnerMenu';
-import {drinkMenuData} from '../../../dummyData/DrinkMenu';
+// data (these should be fetched from backend on render; useEffect??)
+import { dinnerMenuData } from '../../../dummyData/DinnerMenu';
+import { drinkMenuData } from '../../../dummyData/DrinkMenu';
 
 const Menus = () => {
 
   const [menuData, setMenuData] = useState(dinnerMenuData);
 
   const changeDinnerMenu = () => {
-   setMenuData(drinkMenuData);
-  }
+    setMenuData(drinkMenuData);
+  };
 
   const changeDrinkMenu = () => {
     setMenuData(dinnerMenuData);
-  }
+  };
 
   const renderMenuItems = () => {
     return menuData.map(item => {
       return (
-        <MenuCard 
+        <MenuCard
           key={item.id}
+          id={item.id}
           itemName={item.itemName}
           ingredients={item.ingredients}
           price={item.price}
           options={item.options}
+          menuType={item.menuType}
         />
       )
     })
-  }
+  };
 
   return (
     <AdminMenuContainer>
@@ -47,8 +49,10 @@ const Menus = () => {
       <AdminMenuContent>
         {renderMenuItems()}
       </AdminMenuContent>
-      {/* <Link as='/admin/menus/dinner/1/new' href='/admin/menus/[type]/[id]/new'><a>Testing</a></Link>
-      Menus Index */}
+      <MenuLinks>
+        <Link as='/admin/menus/dinner/new' href='/admin/menus/[type]/new'><button>Add New Dinner Item</button></Link>
+        <Link as='/admin/menus/drink/new' href='/admin/menus/[type]/new'><button>Add New Drink Item</button></Link>
+      </MenuLinks>
     </AdminMenuContainer>
   );
 };
@@ -68,6 +72,7 @@ const LinksContainer = styled.div`
 const MenuLinks = styled.div`
   display: flex;
   justify-content: center;
+  padding-bottom: 5vh;
   p, a {
     color: white;
     font-size: 30px;
@@ -77,6 +82,15 @@ const MenuLinks = styled.div`
     &:hover {
       text-decoration: underline;
     }
+  }
+  button {
+    background-color: black;
+    color: white;
+    padding: 2vh 2vw;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 2vh 2vw;
+    cursor: pointer;
   }
 `;
 
