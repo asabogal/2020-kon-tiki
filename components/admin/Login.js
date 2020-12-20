@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
+import { useRouter } from 'next/router'
 import useInputControl from '../../hooks/useInputControl';
 import useSubmitForm from '../../hooks/useSubmitForm';
 import styled from 'styled-components';
 import { InputWrapper, Input, SubmitButton, Error, FormErrors } from '../utils/Forms';
+// context
+import AuthContext from '../../context/auth';
 
 const Login = () => {
 
+  const { login } = useContext(AuthContext);
+  const router = useRouter();
 
   const [userInput, handleChange, reset, inputErrors, validateInput] = useInputControl();
   const [submitForm] = useSubmitForm(userInput);
@@ -43,6 +48,8 @@ const Login = () => {
       alert('invalid form')
     } else {
       submitForm();
+      login();
+      router.push('/admin/dashboard')
       reset();
     }
   };
