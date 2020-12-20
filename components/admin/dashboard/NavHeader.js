@@ -1,6 +1,17 @@
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import AuthContext from '../../../context/auth';
 
 const NavHeader = () => {
+
+  const { logout } = useContext(AuthContext);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/admin');
+  };
 
   return (
     <HeaderContainer>
@@ -9,11 +20,11 @@ const NavHeader = () => {
         <Box>
           <a>Reservations<span>3</span></a>
         </Box>
-        <Box>
+        <Box onClick={handleLogout}>
           <a>Sign Out</a>
         </Box>
       </BoxesContainer>
-    </HeaderContainer>
+    </HeaderContainer >
   );
 };
 
