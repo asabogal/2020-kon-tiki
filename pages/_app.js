@@ -38,16 +38,15 @@ const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const authenticated = window.localStorage.getItem('isLoggedIn');
-    if (authenticated === 'true')  login();
-    if (!authenticated === 'false')  logout();
+    authenticated ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, []);
 
-  const login = () => {window.
+  const login = () => {
     window.localStorage.setItem('isLoggedIn', true);
     setIsLoggedIn(true);
   };
 
-  const logout = () => {
+  const logout = () => { 
     window.localStorage.setItem('isLoggedIn', false);
     setIsLoggedIn(false);
   };
