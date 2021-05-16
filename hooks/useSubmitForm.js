@@ -1,8 +1,7 @@
 const useSubmitForm = (userInput) => {
 
   const submitForm = () => {
-    console.log('params are', userInput)
-    alert('submitted wit hook');
+    alert('submitted with hook');
   }
   return [submitForm];
  }
