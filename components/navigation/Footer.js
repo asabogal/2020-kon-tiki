@@ -13,7 +13,7 @@ const Footer = () => {
       </ContactUs>
       <Hours>
         <h3>HOURS</h3>
-        <p>Friday - Sunday</p>
+        <p>Thursday - Sunday</p>
         <p>5pm - 10pm</p>
       </Hours>
     </Container>
