@@ -47,7 +47,7 @@ const SideBar = () => {
       </Search>
       <AdminMenu>
         <Box>
-          <Link href='#'><a><h2>Manage Reservations</h2></a></Link>
+          <Link href='/admin/reservations'><a><h2>Manage Reservations</h2></a></Link>
         </Box>
         <Box>
           <Link href='/admin/menus'><a><h2>Manage Menus</h2></a></Link>
