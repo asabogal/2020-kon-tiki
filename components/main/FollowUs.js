@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 // images
 import poke from '../../public/images/instagram/poke.png';
 import drink from '../../public/images/instagram/drink.png';
@@ -11,33 +13,32 @@ const InstagramSection = () => {
   return (
     <Container>
       <Heading>
-      <a href='https://www.instagram.com/kontiki.gp/' target="_blank" rel="noopener noreferrer">
-      <FontAwesomeIcon icon={faInstagram} size='4x' color='#cc82a1'/>
-        <h3>Follow Us on Instagram</h3>
-        
+        <a href='https://www.instagram.com/kontiki.gp/' target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faInstagram} size='4x' color='#cc82a1' />
+          <h3>Follow Us on Instagram</h3>
           <p>@kontiki.gp</p>
         </a>
       </Heading>
       <Gallery>
         <ImageContainer>
           <a href='https://www.instagram.com/p/ByIvAzsnYiR/' target="_blank" rel="noopener noreferrer">
-            <img src={poke} alt='poke'/>
+            <Image src={poke} alt='poke' />
           </a>
         </ImageContainer>
         <ImageContainer>
           <a href='https://www.instagram.com/p/B2XhslmHuao/' target="_blank" rel="noopener noreferrer">
-            <img src={drink} alt='drink'/>
+            <Image src={drink} alt='drink' />
           </a>
         </ImageContainer>
         <ImageContainer>
           <a href='https://www.instagram.com/p/CBYy9KvniRD/' target="_blank" rel="noopener noreferrer">
-            <img src={garden} alt='garden'/>
+            <Image src={garden} alt='garden' />
           </a>
         </ImageContainer>
         <ImageContainer>
           <a href='https://www.instagram.com/p/CBENcTunl-d/' target="_blank" rel="noopener noreferrer">
-            <img src={ceviche} alt='ceviche'/>
-          </a> 
+            <Image src={ceviche} alt='ceviche' />
+          </a>
         </ImageContainer>
       </Gallery>
     </Container>

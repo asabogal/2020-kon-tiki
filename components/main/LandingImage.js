@@ -1,11 +1,15 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 import gif from '../../public/images/kt_gif_big.gif';
 
-const LandingImage = ({handleGifLoad}) => {
+const LandingImage = ({ handleGifLoad }) => {
   return (
     <Container>
       <ImageContainer>
-        <img onLoad={handleGifLoad} src={gif} alt='kon-tiki-logo'/>
+        <Image
+          onLoad={handleGifLoad}
+          src={gif} alt='kon-tiki-logo'
+          layout='responsive' />
       </ImageContainer>
     </Container>
   );
@@ -22,7 +26,7 @@ const Container = styled.div`
   @media (max-width: 599px) {
     height: 80vh;
   }
-`; 
+`;
 
 const ImageContainer = styled.div`
 width: 50%;

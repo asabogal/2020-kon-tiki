@@ -2,7 +2,7 @@ export const dinnerMenuData = [
   {
     id: 1,
     itemName: 'Dragon Salad',
-    ingredients: 'Cabbage, Asian Greens, Herbs, Peanuts, Watermelon Radish, Citrus Dressing',
+    ingredients: 'Cabbage, Asian Greens, Herbs, Peanuts, Watermelon Radish, Mango, Citrus Dressing',
     price: 14,
     options: [],
     menuType: 'dinner'
@@ -10,7 +10,7 @@ export const dinnerMenuData = [
   {
     id: 2,
     itemName: 'Rising Sun Salad',
-    ingredients: 'Jicama, Papaya, Carrots, Radish, Ginger Dressing',
+    ingredients: 'Jicama, Carrots, Radish, Watercress, Ginger Dressing',
     price: 14,
     options: [],
     menuType: 'dinner'
@@ -19,60 +19,74 @@ export const dinnerMenuData = [
     id: 3,
     itemName: 'Charred Edamame',
     ingredients: 'Seasame Oil, Matcha Salt',
-    price: 11,
-    options: [],
-    menuType: 'dinner'
-  },
-  {
-    id: 4,
-    itemName: 'Blistered Shishito',
-    ingredients: 'Limes, Smoked Salt, Furikake',
     price: 12,
     options: [],
     menuType: 'dinner'
   },
   {
-    id: 5,
+    id: 4,
     itemName: 'Crispy Brussels Sprouts',
-    ingredients: 'Homemande Gochujang Sauce, Cabbage, Peanuts',
+    ingredients: 'Homemande Gochujang, Cabbage, Peanuts',
     price: 14,
     options: [],
     menuType: 'dinner'
   },
   {
-    id: 6,
+    id: 5,
     itemName: '* Tuna Poke',
     ingredients: 'Nori, Yuzo Ponzu, Scallion, Cilantro, Hijiki, Cucumber, Mango, Crispy Wonton',
-    price: 22,
+    price: 24,
+    options: [],
+    menuType: 'dinner'
+  },
+  {
+    id: 6,
+    itemName: '* Pacific Ceviche',
+    ingredients: 'Catch of the Day, Yuzu, Wasabi Stem, Red Onion, Coconut, Pickled Ginger, Cilantro',
+    price: 23,
     options: [],
     menuType: 'dinner'
   },
   {
     id: 7,
-    itemName: '* Pacific Crudo',
-    ingredients: 'Fluke, Yuzu, Wasabi Stem, Coconut Cream, Cilantro',
-    price: 19,
+    itemName: 'Thai Lettuce Wrap',
+    ingredients: 'Marinated Tofu, Cabbage, Pickled Veggies, Cilantro, Bang-Bang Sauce',
+    price: 14,
     options: [],
     menuType: 'dinner'
   },
   {
     id: 8,
-    itemName: 'Crab Rangoon',
-    ingredients: 'Cream Cheese, Scallions, Togarashi Honey Chili sauce',
-    price: 13,
+    itemName: 'Asian Vegetable Basket',
+    ingredients: 'ASian Market Vegetables, Yuzu Dipping Sauce',
+    price: 16,
     options: [],
     menuType: 'dinner'
   },
   {
     id: 9,
-    itemName: 'Summer Asian Corn',
-    ingredients: 'Miso Aioli, Cotija, Togarashi',
-    price: 10,
+    itemName: '* Szechuan Noodles',
+    ingredients: 'Cold Soba, Soft Soy Egg, Coconut Cream, Homemade Szechuan Oil, Scallions',
+    price: 19,
     options: [],
     menuType: 'dinner'
   },
   {
     id: 10,
+    itemName: 'Cocunut Curry',
+    ingredients: 'Cocunut Cream, Thai Red Curry, Kaffir Lime, White Rice, Asian Vegetables',
+    price: 23,
+    options: [
+      {
+        id: 1,
+        ingredients: "Add Shrimp",
+        price: 11
+      }
+    ],
+    menuType: 'dinner'
+  },
+  {
+    id: 11,
     itemName: 'Soup Dumpling',
     ingredients: 'Pork Farci, Scallions, Thai Chilies, XLB Sauce',
     price: 14,
@@ -80,60 +94,52 @@ export const dinnerMenuData = [
     menuType: 'dinner'
   },
   {
-    id: 11,
+    id: 12,
     itemName: 'Korean Lollipops',
-    ingredients: 'Chicken Wings, Homemade Gochujang',
+    ingredients: 'Frenched Chicken Wings, Cabbage, Homemade Gochujang',
     price: 19,
     options: [],
     menuType: 'dinner'
   },
   {
-    id: 12,
-    itemName: 'Head on Shrimp Satay',
-    ingredients: 'Pineapple, Mint Chimichurri',
-    price: 22,
-    options: [],
-    menuType: 'dinner'
-  },
-  {
     id: 13,
-    itemName: 'Bao Buns',
-    ingredients: '',
-    price: 12,
+    itemName: 'Short Rib Bao Buns',
+    ingredients: 'Braised Short Ribs, Kimchi, Curley Scallions',
+    price: 16,
     options: [
-      {
-        id: 1,
-        name: 'Munster Bao',
-        ingredients: 'Braised Short Ribs, Kimchi, Muenster Cheese, Bell Peppers',
-        price: 15
-      },
-      {
-        id: 2,
-        name: 'Long Island Duck Banh Mi Bao',
-        ingredients: 'Duck Leg Confit, Tamarind, Pickles, Cilantro',
-        price: 19
-      },
-      {
-        id: 3,
-        name: 'Lobster Roll Bao',
-        ingredients: 'Tarragon, Coconut Aioli, Butter Lettuce, Chives Flowers',
-        price: 23
-      },
+      // {
+      //   id: 1,
+      //   name: 'Munster Bao',
+      //   ingredients: 'Braised Short Ribs, Kimchi, Muenster Cheese, Bell Peppers',
+      //   price: 15
+      // },
+      // {
+      //   id: 2,
+      //   name: 'Long Island Duck Banh Mi Bao',
+      //   ingredients: 'Duck Leg Confit, Tamarind, Pickles, Cilantro',
+      //   price: 19
+      // },
+      // {
+      //   id: 3,
+      //   name: 'Lobster Roll Bao',
+      //   ingredients: 'Tarragon, Coconut Aioli, Butter Lettuce, Chives Flowers',
+      //   price: 23
+      // },
     ],
     menuType: 'dinner'
   },
-  {
-    id: 14,
-    itemName: 'Asian Market Stir Fry',
-    ingredients: 'Bok Choi, Japanese Eggplant, Mushrooms, Red Onion, Thai Basil',
-    price: 17,
-    options: [],
-    menuType: 'dinner'
-  },
+  // {
+  //   id: 14,
+  //   itemName: 'Asian Market Stir Fry',
+  //   ingredients: 'Bok Choi, Japanese Eggplant, Mushrooms, Red Onion, Thai Basil',
+  //   price: 17,
+  //   options: [],
+  //   menuType: 'dinner'
+  // },
   {
     id: 15,
     itemName: '* Kimchi Fried Rice',
-    ingredients: 'Organic Eggs, Pickled Onion, Kombu Rice, Curly Scallion',
+    ingredients: 'Organic Eggs, Kombu Rice, Pickled Onions, Curly Scallion',
     price: 23,
     options: [
       {

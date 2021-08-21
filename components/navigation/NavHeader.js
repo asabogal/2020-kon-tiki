@@ -4,15 +4,18 @@ import SocialBar from '../utils/SocialBar';
 const NavHeader = () => {
   return (
     <Container>
+      <ReserveContainer>
+        <a href='https://resy.com/cities/grnp/kontiki?gclsrc=aw.ds&gclid=CjwKCAjwyIKJBhBPEiwAu7zll_TG4iYB0dv5w79KBWzRgFxD_zkcpyzewI2DmwgguMt6xzydAC4PmRoCnK0QAvD_BwE&date=2021-08-21&seats=2' target="_blank" rel="noopener noreferrer">Reserve a Table</a>
+      </ReserveContainer>
+      <Hours>
+        <p>Wednesday - Sunday</p>
+        <p>5pm - 10pm</p>
         <a href="tel: +1-631-477-4007">631-477-4007</a>
-        <Hours>
-          <p>Thursday - Sunday</p>
-          <p>5pm - 10pm</p>
-        </Hours>
-        <SocialBar
-          color='white'
-          size='lg'
-        />
+      </Hours>
+      <SocialBar
+        color='white'
+        size='lg'
+      />
     </Container>
   );
 };
@@ -25,7 +28,7 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   z-index: 900;
-  height: 55px;
+  height: 75px;
   padding-top: 20px;
   background-color: black;
   z-index: 900;
@@ -54,5 +57,28 @@ const Hours = styled.div`
     justify-items: center;
     font-size: 18px;
     color: white;
+  }
+  a {
+    padding-top: 10px;
+    text-decoration: none;
+    color: #cc82a1;
+    font-size: 18px;  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @media (max-width: 599px) {
+    padding: 15px 0px;
+  }
+`;
+
+const ReserveContainer = styled.div`
+    a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;  
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;

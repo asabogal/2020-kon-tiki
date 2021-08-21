@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'
 import styled from 'styled-components';
 import takeout from '../../public/images/takeout.png';
 
@@ -8,14 +9,14 @@ const TakeOut = () => {
       <TextContainer>
         <h1>TAKE OUT</h1>
         <p>Food and Cocktails</p>
-        <p>From 5pm - 9pm, Thursday - Sunday</p>
+        <p>From 5pm - 9pm, Wednesday - Sunday</p>
         <LinkContainer>
           <Link href='/menu'><a>MENU</a></Link>
         </LinkContainer>
       </TextContainer>
-      <ImageContainer>
-        <img src={takeout} alt='garden'/>
-      </ImageContainer>
+      {/* <ImageContainer>
+        <Image src={takeout} alt='garden' layout='responsive' />
+      </ImageContainer> */}
     </Container>
   );
 };

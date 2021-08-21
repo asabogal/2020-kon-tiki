@@ -9,32 +9,32 @@ export const drinkMenuData = [
   },
   {
     id: 2,
-    itemName: 'Bangkok Mule',
-    ingredients: 'Tito\'s Vodka, Lychee, Fresh Ginger, Lime',
-    price: '15',
+    itemName: 'Shark Attack',
+    ingredients: 'Forzen Margarita with Red Pepper Infused Tequila, Passionfruit, Fresh Lime',
+    price: '16',
     options: [],
     menuType: 'drink'
   },
   {
     id: 4,
     itemName: 'Coconut Island',
-    ingredients: 'Aperol, Gin, Coconut Cream, Lime',
-    price: '14',
+    ingredients: 'Frozen Piña Colada with Coconut Cream, Pineapple, Fresh Lime',
+    price: '16',
     options: [],
     menuType: 'drink'
   },
   {
     id: 5,
-    itemName: 'Pineapple Mojito',
-    ingredients: 'White Rum, Club Soda, Mint, Lime',
-    price: '14',
+    itemName: 'Summer Breeze',
+    ingredients: 'Tito\'s Vodka, Watermelon, Mint, Fresh Lime',
+    price: '16',
     options: [],
     menuType: 'drink'
   },
   {
     id: 6,
-    itemName: 'Hot Toddy',
-    ingredients: 'Bourbon, Honey, Lemon',
+    itemName: 'Thai Me Up',
+    ingredients: 'Mai Tai Style Agricultural Rum, Orgeat Syrup, Pineapple Juice, Lime',
     price: '14',
     options: [],
     menuType: 'drink'
@@ -42,23 +42,34 @@ export const drinkMenuData = [
   {
     id: 7,
     itemName: 'Beer',
-    ingredients: 'Red Stripe',
-    price: '7',
-    options: [],
+    ingredients: '',
+    price: '',
+    options: [
+      {
+        id: 1,
+        ingredients: 'Greenport Pilsner',
+        price: 8
+      },
+      {
+        id: 2,
+        ingredients: 'Tiki Paradise Pineapple Beer',
+        price: 8
+      },
+    ],
     menuType: 'drink'
   },
-  {
-    id: 8,
-    itemName: 'Mexican Coca-Cola',
-    ingredients: 'Made with sugar cane',
-    price: '5',
-    options: [],
-    menuType: 'drink'
-  },
+  // {
+  //   id: 8,
+  //   itemName: 'Mexican Coca-Cola',
+  //   ingredients: 'Made with sugar cane',
+  //   price: '5',
+  //   options: [],
+  //   menuType: 'drink'
+  // },
   {
     id: 9,
     itemName: 'Organic NY Hard Apple Cider',
-    ingredients: 'Red Stripe',
+    ingredients: '',
     price: '',
     options: [
       {
@@ -75,46 +86,48 @@ export const drinkMenuData = [
     menuType: 'drink'
   },
   {
-    id: 7,
+    id: 10,
+    itemName: 'Ice Tea Your Way',
+    ingredients: 'Sweetened or Unsweetened',
+    price: '7',
+    options: [],
+    menuType: 'drink'
+  },
+  {
+    id: 11,
     itemName: 'Wine',
     ingredients: '',
     price: '',
     options: [
       {
         id: 1,
-        name: 'Red | 2020 Anjou Ange Rouge | France',
-        ingredients: 'Savory yet fresh wine. Slight bell pepper and dark fruit notes make this medium body red easy to drink. Served slightly chilled.',
+        name: 'Red | 2016 Bergamota Dão DOC | Portugal',
+        ingredients: 'Dry red wine blend. A perfect expression of elegance and aristocracy, displaying superb structure and the scent of violets. Gentle oaking has added to the complexity of this dense wine, with rich chocolate aromas and layers of dark cherries on the palate',
         price: '15/60'
       },
       {
         id: 2,
-        name: 'Rosé | 2020 Weingut Alexander Koppitsch "Rosza" | Austria',
-        ingredients: 'The easiest hot summer Rosé you will ever drink.',
-        price: '15/60'
-      },
-      {
-        id: 3,
         name: 'Rosé | 2020 Solange Rose | France',
         ingredients: 'Smooth, dry French Rosé. Mellow notes of this Merlot grape.',
         price: '14/55'
       },
       {
-        id: 4,
-        name: 'Orange | 2020 Auguste Orange | France',
-        ingredients: 'An easy to drink, skin contact wine with notes of peach and apricot. It may easily become your 2021 crush.',
-        price: '15/60'
-      },
-      {
-        id: 5,
+        id: 3,
         name: 'White | 2020 Inspiration Blanc | France',
-        ingredients: 'Juicy, medium sweet, rounded, white wine. One of the best wines you will taste this summer.',
+        ingredients: 'Juicy, medium sweet, Rounded, White Wine. One of the best wines you will taste this summer.',
         price: '16/66'
       },
       {
-        id: 6,
-        name: 'White | 2018 North Fork Project Chardonnay | Long Island, NY',
+        id: 4,
+        name: 'Orange | 2020 Macari Sauvignon Blanc | Long Island, NY',
         ingredients: 'A perfect, easy to drink white wine to enjoy and support the North Fork.',
         price: '14/55'
+      },
+      {
+        id: 5,
+        name: 'Sparkling | Louis Pommery California Brut',
+        ingredients: 'Lemon, Pear, Apple notes make this sparkling bright and fruity, while having a smooth, bubbly finish.',
+        price: '15/60'
       },
     ],
     menuType: 'drink'

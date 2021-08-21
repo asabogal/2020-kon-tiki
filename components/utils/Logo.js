@@ -1,10 +1,11 @@
+import Image from 'next/image'
 import styled from 'styled-components';
 import logo from '../../public/images/navlogo.png';
 
 const Logo = () => {
   return (
     <Container>
-      <img src={logo} alt='kontiki-logo'/>
+      <Image src={logo} alt='kontiki-logo' />
     </Container>
   );
 };

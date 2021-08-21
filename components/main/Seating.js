@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'
 import styled from 'styled-components';
 import garden from '../../public/images/garden.jpeg';
 import bar from '../../public/images/bar2.png';
@@ -8,15 +9,15 @@ const Seating = () => {
     <Container>
       <TextContainer>
         <h1>Indoor & Outdoor Seating</h1>
-        <p>Thursday - Sunday</p>
+        <p>Wednesday - Sunday</p>
         <p>Dinner & Cocktails 5pm - 10pm</p>
         <LinkContainer>
           <Link href='/menu'><a>MENU</a></Link>
         </LinkContainer>
       </TextContainer>
       <ImagesContainer>
-        <img src={bar} alt='indoor-bar'/>
-        <img src={garden} alt='outdoor-garden'/>
+        <Image src={bar} alt='indoor-bar' />
+        <Image src={garden} alt='outdoor-garden' />
       </ImagesContainer>
     </Container>
   );

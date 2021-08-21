@@ -1,18 +1,18 @@
 
 import styled from 'styled-components';
 
-const MenuCard = ({itemName, ingredients, price, options}) => {
+const MenuCard = ({ itemName, ingredients, price, options }) => {
 
   const renderOptions = (options) => {
-   return options.map(option => {
-     return (
-      <OptionsContainer key={option.id}>
-        {option.name && <h3><strong><u>{option.name}</u></strong></h3>}
-      <h3>{option.ingredients}</h3>
-      <h4>{option.price}</h4>
-     </OptionsContainer>
-     );
-   })
+    return options.map(option => {
+      return (
+        <OptionsContainer key={option.id}>
+          {option.name && <h3><strong><u>{option.name}</u></strong></h3>}
+          <h3>{option.ingredients}</h3>
+          <h4>{option.price}</h4>
+        </OptionsContainer>
+      );
+    })
   };
 
   return (
@@ -20,13 +20,13 @@ const MenuCard = ({itemName, ingredients, price, options}) => {
       <h2>{itemName}</h2>
       {
         ingredients.length === 0 ? renderOptions(options) :
-        <h3>{ingredients}</h3>
+          <h3>{ingredients}</h3>
       }
-      {ingredients.length !== 0 && 
-      <>
-        <h4>{price}</h4>
-        {renderOptions(options)}
-      </>
+      {ingredients.length !== 0 &&
+        <>
+          <h4>{price}</h4>
+          {renderOptions(options)}
+        </>
       }
     </MenuCardContainer>
   );
