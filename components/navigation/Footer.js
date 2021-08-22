@@ -4,7 +4,7 @@ import Logo from '../utils/Logo';
 const Footer = () => {
   return (
     <Container>
-      <Logo/>
+      <Logo />
       <ContactUs>
         <h3>CONTACT US</h3>
         <a href="tel: +1-631-477-4007">631-477-4007</a>
@@ -13,7 +13,7 @@ const Footer = () => {
       </ContactUs>
       <Hours>
         <h3>HOURS</h3>
-        <p>Thursday - Sunday</p>
+        <p>Wednesday - Sunday</p>
         <p>5pm - 10pm</p>
       </Hours>
     </Container>
